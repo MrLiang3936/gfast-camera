@@ -62,6 +62,7 @@ func (s *sSysCamera) List(ctx context.Context, req *system.CameraSearchReq) (res
 	return
 }
 
+// 添加 http://192.168.2.125:8080/index/api/addStreamProxy?secret=qBiDssKtJIk5ngc0M6sa8ZvsCwQAiWcH&vhost=__defaultVhost__&app=proxy&stream=0&url=rtsp://admin:hbAC2023@192.168.2.2:554/h264/ch1/main/av_stream&retry_count=-1&rtp_type=0&timeout_sec=10.0&enable_hls=false&enable_hls_fmp4=false&enable_mp4=false&enable_rtsp=false&enable_rtmp=false&enable_ts=false&enable_fmp4=true&hls_demand=false&rtsp_demand=false&rtmp_demand=false&ts_demand=false&fmp4_demand=true&enable_audio=false&add_mute_audio=true&mp4_save_path=&mp4_max_second=3600&mp4_as_player=false&hls_save_path=&modify_stamp=0&auto_close=false
 func (s *sSysCamera) Add(ctx context.Context, req *system.CameraAddReq) (err error) {
 	err = g.Try(ctx, func(ctx context.Context) {
 		_, err = dao.SysCamera.Ctx(ctx).Insert(do.SysCamera{
@@ -105,6 +106,7 @@ func (s *sSysCamera) Delete(ctx context.Context, ids []int) (err error) {
 	return
 }
 
+// 获取 ws://192.168.2.125:8080/${app}/${stream}.live.mp4
 func (s *sSysCamera) Get(ctx context.Context, id int) (res *model.CameraGetMediaRes, err error) {
 	err = g.Try(ctx, func(ctx context.Context) {
 		err = dao.SysCamera.Ctx(ctx).Where(dao.SysCamera.Columns().CameraId, id).Scan(&res)
