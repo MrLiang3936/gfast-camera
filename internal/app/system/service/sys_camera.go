@@ -9,6 +9,7 @@ import (
 	"context"
 
 	"github.com/tiger1103/gfast/v3/api/v1/system"
+	"github.com/tiger1103/gfast/v3/internal/app/system/model"
 )
 
 type ISysCamera interface {
@@ -16,7 +17,7 @@ type ISysCamera interface {
 	Add(ctx context.Context, req *system.CameraAddReq) (err error)
 	Edit(ctx context.Context, req *system.CameraEditReq) (err error)
 	Delete(ctx context.Context, ids []int) (err error)
-	Get(ctx context.Context, id int) (res *system.CameraGetRes, err error)
+	Get(ctx context.Context, id int) (res *model.CameraGetMediaRes, err error)
 }
 
 var localSysCamera ISysCamera

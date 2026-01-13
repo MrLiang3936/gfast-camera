@@ -11,6 +11,7 @@ import (
 	"context"
 
 	"github.com/tiger1103/gfast/v3/api/v1/system"
+	"github.com/tiger1103/gfast/v3/internal/app/system/model"
 	"github.com/tiger1103/gfast/v3/internal/app/system/service"
 )
 
@@ -45,7 +46,7 @@ func (c *cameraController) Delete(ctx context.Context, req *system.CameraDeleteR
 }
 
 // Get 查询摄像头详情
-func (c *cameraController) Get(ctx context.Context, req *system.CameraGetReq) (res *system.CameraGetRes, err error) {
+func (c *cameraController) Get(ctx context.Context, req *system.CameraGetReq) (res *model.CameraGetMediaRes, err error) {
 	res, err = service.SysCamera().Get(ctx, req.Id)
 	return
 }

@@ -89,3 +89,9 @@ gfcli:
         descriptionTag:  true
         noModelComment:  true
         path: "./internal/app/system"
+
+# ZLMediaKit 配置
+zlmediaKit:
+  host: "192.168.2.125"  # ZLMediaKit 服务主机地址
+  port: 8080             # ZLMediaKit 服务端口
+  apiBase: "http://192.168.2.125/index/api"
