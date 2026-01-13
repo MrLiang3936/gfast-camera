@@ -1,0 +1,58 @@
+2025-12-31T09:19:59.514+08:00 [INFO] swagger ui is serving at address: http://127.0.0.1:8808/swagger/
+2025-12-31T09:19:59.514+08:00 [INFO] pid[15492]: http server started listening on [:8808]
+2025-12-31T09:19:59.514+08:00 [INFO] openapi specification is serving at address: http://127.0.0.1:8808/api.json
+2025-12-31T09:47:44.448+08:00 [INFO] pid[19712]: http server started listening on [:8808]
+2025-12-31T09:47:44.448+08:00 [INFO] swagger ui is serving at address: http://127.0.0.1:8808/swagger/
+2025-12-31T09:47:44.448+08:00 [INFO] openapi specification is serving at address: http://127.0.0.1:8808/api.json
+2025-12-31T10:12:55.776+08:00 [INFO] pid[15504]: http server started listening on [:8808]
+2025-12-31T10:12:55.776+08:00 [INFO] swagger ui is serving at address: http://127.0.0.1:8808/swagger/
+2025-12-31T10:12:55.777+08:00 [INFO] openapi specification is serving at address: http://127.0.0.1:8808/api.json
+2025-12-31T10:15:35.939+08:00 [INFO] pid[20416]: http server started listening on [:8808]
+2025-12-31T10:15:35.939+08:00 [INFO] swagger ui is serving at address: http://127.0.0.1:8808/swagger/
+2025-12-31T10:15:35.940+08:00 [INFO] openapi specification is serving at address: http://127.0.0.1:8808/api.json
+2025-12-31T11:09:14.644+08:00 [INFO] pid[21152]: http server started listening on [:8808]
+2025-12-31T11:09:14.644+08:00 [INFO] swagger ui is serving at address: http://127.0.0.1:8808/swagger/
+2025-12-31T11:09:14.645+08:00 [INFO] openapi specification is serving at address: http://127.0.0.1:8808/api.json
+2025-12-31T11:20:39.206+08:00 [INFO] pid[9628]: http server started listening on [:8808]
+2025-12-31T11:20:39.207+08:00 [INFO] swagger ui is serving at address: http://127.0.0.1:8808/swagger/
+2025-12-31T11:20:39.207+08:00 [INFO] openapi specification is serving at address: http://127.0.0.1:8808/api.json
+2025-12-31T11:33:45.325+08:00 [INFO] swagger ui is serving at address: http://127.0.0.1:8808/swagger/
+2025-12-31T11:33:45.325+08:00 [INFO] pid[18268]: http server started listening on [:8808]
+2025-12-31T11:33:45.326+08:00 [INFO] openapi specification is serving at address: http://127.0.0.1:8808/api.json
+2025-12-31T13:03:59.866+08:00 [INFO] pid[5264]: http server started listening on [:8808]
+2025-12-31T13:03:59.866+08:00 [INFO] swagger ui is serving at address: http://127.0.0.1:8808/swagger/
+2025-12-31T13:03:59.866+08:00 [INFO] openapi specification is serving at address: http://127.0.0.1:8808/api.json
+2025-12-31T15:51:45.218+08:00 [INFO] pid[24952]: http server started listening on [:8808]
+2025-12-31T15:51:45.218+08:00 [INFO] swagger ui is serving at address: http://127.0.0.1:8808/swagger/
+2025-12-31T15:51:45.219+08:00 [INFO] openapi specification is serving at address: http://127.0.0.1:8808/api.json
+2025-12-31T15:54:49.859+08:00 [INFO] pid[17848]: http server started listening on [:8808]
+2025-12-31T15:54:49.859+08:00 [INFO] swagger ui is serving at address: http://127.0.0.1:8808/swagger/
+2025-12-31T15:54:49.859+08:00 [INFO] openapi specification is serving at address: http://127.0.0.1:8808/api.json
+2025-12-31T15:58:20.511+08:00 [INFO] pid[5668]: http server started listening on [:8808]
+2025-12-31T15:58:20.511+08:00 [INFO] swagger ui is serving at address: http://127.0.0.1:8808/swagger/
+2025-12-31T15:58:20.512+08:00 [INFO] openapi specification is serving at address: http://127.0.0.1:8808/api.json
+2025-12-31T16:19:21.513+08:00 [INFO] pid[21000]: http server started listening on [:8808]
+2025-12-31T16:19:21.513+08:00 [INFO] swagger ui is serving at address: http://127.0.0.1:8808/swagger/
+2025-12-31T16:19:21.513+08:00 [INFO] openapi specification is serving at address: http://127.0.0.1:8808/api.json
+2025-12-31T16:26:45.381+08:00 [INFO] pid[20924]: http server started listening on [:8808]
+2025-12-31T16:26:45.381+08:00 [INFO] swagger ui is serving at address: http://127.0.0.1:8808/swagger/
+2025-12-31T16:26:45.381+08:00 [INFO] openapi specification is serving at address: http://127.0.0.1:8808/api.json
+2025-12-31T16:34:25.867+08:00 [FATA] invalid handler: defined as "func(context.Context, int) (*system.CameraGetRes, error)", but the second input parameter should be type of pointer to struct like "*BizReq"
+1. invalid handler: defined as "func(context.Context, int) (*system.CameraGetRes, error)", but the second input parameter should be type of pointer to struct like "*BizReq"
+   1).  github.com/tiger1103/gfast/v3/internal/cmd.init.func1
+        E:/workspace/go/gfast/internal/cmd/cmd.go:32
+   2).  main.main
+        E:/workspace/go/gfast/main.go:13
+ 
+Stack:
+1.  github.com/tiger1103/gfast/v3/internal/cmd.init.func1
+    E:/workspace/go/gfast/internal/cmd/cmd.go:32
+2.  main.main
+    E:/workspace/go/gfast/main.go:13
+
+2025-12-31T16:36:24.827+08:00 [INFO] pid[24612]: http server started listening on [:8808]
+2025-12-31T16:36:24.827+08:00 [INFO] swagger ui is serving at address: http://127.0.0.1:8808/swagger/
+2025-12-31T16:36:24.827+08:00 [INFO] openapi specification is serving at address: http://127.0.0.1:8808/api.json
+2025-12-31T17:06:32.840+08:00 [INFO] pid[1760]: http server started listening on [:8808]
+2025-12-31T17:06:32.840+08:00 [INFO] swagger ui is serving at address: http://127.0.0.1:8808/swagger/
+2025-12-31T17:06:32.841+08:00 [INFO] openapi specification is serving at address: http://127.0.0.1:8808/api.json

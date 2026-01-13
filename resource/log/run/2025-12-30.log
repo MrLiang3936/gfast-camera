@@ -1,0 +1,188 @@
+2025-12-30T16:35:05.357+08:00 [INFO] {dc18328244f185186c414b66067cb1a6} E:/workspace/go/gfast/internal/cmd/cmd.go:24: 
+   ____________           __ 
+  / ____/ ____/___ ______/ /_
+ / / __/ /_  / __ `/ ___/ __/
+/ /_/ / __/ / /_/ (__  ) /_  
+\____/_/    \__,_/____/\__/   Version: 3.3.8
+2025-12-30T16:36:19.510+08:00 [INFO] {800f10c655f185186f414b66337f00bf} C:/Users/Administrator/go/pkg/mod/github.com/tiger1103/gfast-token@v1.0.10/gftoken/gftoken.go:108: token is invalid
+2025-12-30T16:36:31.349+08:00 [INFO] {3023c48758f1851872414b66af231966} C:/Users/Administrator/go/pkg/mod/github.com/tiger1103/gfast-token@v1.0.10/gftoken/gftoken.go:108: token is invalid
+2025-12-30T16:49:44.194+08:00 [INFO] {2802fa2011f28518f34d0e1b952d023c} E:/workspace/go/gfast/internal/cmd/cmd.go:24: 
+   ____________           __ 
+  / ____/ ____/___ ______/ /_
+ / / __/ /_  / __ `/ ___/ __/
+/ /_/ / __/ / /_/ (__  ) /_  
+\____/_/    \__,_/____/\__/   Version: 3.3.8
+2025-12-30T16:49:56.886+08:00 [INFO] {9899781514f28518f54d0e1bc37505dc} C:/Users/Administrator/go/pkg/mod/github.com/tiger1103/gfast-token@v1.0.10/gftoken/gftoken.go:108: token is invalid
+2025-12-30T17:07:17.121+08:00 [INFO] {a41a4d4806f385180848344387937fe9} E:/workspace/go/gfast/internal/cmd/cmd.go:24: 
+   ____________           __ 
+  / ____/ ____/___ ______/ /_
+ / / __/ /_  / __ `/ ___/ __/
+/ /_/ / __/ / /_/ (__  ) /_  
+\____/_/    \__,_/____/\__/   Version: 3.3.8
+2025-12-30T17:07:25.310+08:00 [INFO] {6864693008f385180a4834434d99c60a} C:/Users/Administrator/go/pkg/mod/github.com/tiger1103/gfast-token@v1.0.10/gftoken/gftoken.go:108: token is invalid
+2025-12-30T17:10:17.574+08:00 [INFO] {a843294c30f385182ab3134a49ebe6fc} E:/workspace/go/gfast/internal/cmd/cmd.go:24: 
+   ____________           __ 
+  / ____/ ____/___ ______/ /_
+ / / __/ /_  / __ `/ ___/ __/
+/ /_/ / __/ / /_/ (__  ) /_  
+\____/_/    \__,_/____/\__/   Version: 3.3.8
+2025-12-30T17:10:50.720+08:00 [INFO] {e008d10338f385182cb3134ab9718ae2} C:/Users/Administrator/go/pkg/mod/github.com/tiger1103/gfast-token@v1.0.10/gftoken/gftoken.go:108: token is invalid
+2025-12-30T17:11:20.292+08:00 [ERRO] {bcfe5be63ef3851837b3134a275014df} E:/workspace/go/gfast/library/liberr/err.go:22: IP地址与子网掩码不匹配 
+Stack:
+1.  github.com/tiger1103/gfast/v3/library/liberr.ErrIsNil
+    E:/workspace/go/gfast/library/liberr/err.go:22
+2.  github.com/tiger1103/gfast/v3/internal/app/common/logic/sysConfig.(*sSysConfig).SaveNetworkConfig.func1
+    E:/workspace/go/gfast/internal/app/common/logic/sysConfig/sys_config.go:257
+3.  github.com/tiger1103/gfast/v3/internal/app/common/logic/sysConfig.(*sSysConfig).SaveNetworkConfig
+    E:/workspace/go/gfast/internal/app/common/logic/sysConfig/sys_config.go:251
+4.  github.com/tiger1103/gfast/v3/internal/app/system/controller.(*configController).SaveNetworkConfig
+    E:/workspace/go/gfast/internal/app/system/controller/sys_config.go:63
+5.  github.com/tiger1103/gfast/v3/internal/app/system/logic/middleware.(*sMiddleware).Auth
+    E:/workspace/go/gfast/internal/app/system/logic/middleware/middleware.go:79
+6.  github.com/tiger1103/gfast/v3/internal/app/system/logic/middleware.(*sMiddleware).Ctx
+    E:/workspace/go/gfast/internal/app/system/logic/middleware/middleware.go:52
+7.  github.com/tiger1103/gfast-token/gftoken.(*GfToken).authMiddleware
+    C:/Users/Administrator/go/pkg/mod/github.com/tiger1103/gfast-token@v1.0.10/gftoken/middleware.go:21
+8.  github.com/tiger1103/gfast/v3/internal/app/common/logic/middleware.(*sMiddleware).MiddlewareCORS
+    E:/workspace/go/gfast/internal/app/common/logic/middleware/middleware.go:30
+
+2025-12-30T17:12:30.386+08:00 [INFO] {242264384ff385181360bc232e504bea} E:/workspace/go/gfast/internal/cmd/cmd.go:24: 
+   ____________           __ 
+  / ____/ ____/___ ______/ /_
+ / / __/ /_  / __ `/ ___/ __/
+/ /_/ / __/ / /_/ (__  ) /_  
+\____/_/    \__,_/____/\__/   Version: 3.3.8
+2025-12-30T17:12:36.722+08:00 [INFO] {148509b250f385181560bc23812d01a9} C:/Users/Administrator/go/pkg/mod/github.com/tiger1103/gfast-token@v1.0.10/gftoken/gftoken.go:108: token is invalid
+2025-12-30T17:13:00.752+08:00 [ERRO] {3468404a56f385182060bc23077bfb50} E:/workspace/go/gfast/library/liberr/err.go:22: IP地址与子网掩码不匹配 
+Stack:
+1.  github.com/tiger1103/gfast/v3/library/liberr.ErrIsNil
+    E:/workspace/go/gfast/library/liberr/err.go:22
+2.  github.com/tiger1103/gfast/v3/internal/app/common/logic/sysConfig.(*sSysConfig).SaveNetworkConfig.func1
+    E:/workspace/go/gfast/internal/app/common/logic/sysConfig/sys_config.go:257
+3.  github.com/tiger1103/gfast/v3/internal/app/common/logic/sysConfig.(*sSysConfig).SaveNetworkConfig
+    E:/workspace/go/gfast/internal/app/common/logic/sysConfig/sys_config.go:251
+4.  github.com/tiger1103/gfast/v3/internal/app/system/controller.(*configController).SaveNetworkConfig
+    E:/workspace/go/gfast/internal/app/system/controller/sys_config.go:63
+5.  github.com/tiger1103/gfast/v3/internal/app/system/logic/middleware.(*sMiddleware).Auth
+    E:/workspace/go/gfast/internal/app/system/logic/middleware/middleware.go:79
+6.  github.com/tiger1103/gfast/v3/internal/app/system/logic/middleware.(*sMiddleware).Ctx
+    E:/workspace/go/gfast/internal/app/system/logic/middleware/middleware.go:52
+7.  github.com/tiger1103/gfast-token/gftoken.(*GfToken).authMiddleware
+    C:/Users/Administrator/go/pkg/mod/github.com/tiger1103/gfast-token@v1.0.10/gftoken/middleware.go:21
+8.  github.com/tiger1103/gfast/v3/internal/app/common/logic/middleware.(*sMiddleware).MiddlewareCORS
+    E:/workspace/go/gfast/internal/app/common/logic/middleware/middleware.go:30
+
+2025-12-30T17:27:15.777+08:00 [INFO] {782ebf5d1df485187277634842f83daa} E:/workspace/go/gfast/internal/cmd/cmd.go:24: 
+   ____________           __ 
+  / ____/ ____/___ ______/ /_
+ / / __/ /_  / __ `/ ___/ __/
+/ /_/ / __/ / /_/ (__  ) /_  
+\____/_/    \__,_/____/\__/   Version: 3.3.8
+2025-12-30T17:27:25.106+08:00 [INFO] {68bfd8891ff4851874776348ef551b7e} C:/Users/Administrator/go/pkg/mod/github.com/tiger1103/gfast-token@v1.0.10/gftoken/gftoken.go:108: token is invalid
+2025-12-30T17:30:44.392+08:00 [INFO] {24aa2ef04df48518801d7833b7feaa23} E:/workspace/go/gfast/internal/cmd/cmd.go:24: 
+   ____________           __ 
+  / ____/ ____/___ ______/ /_
+ / / __/ /_  / __ `/ ___/ __/
+/ /_/ / __/ / /_/ (__  ) /_  
+\____/_/    \__,_/____/\__/   Version: 3.3.8
+2025-12-30T17:30:54.426+08:00 [INFO] {d8ea3b4650f48518821d78334f4b2b3b} C:/Users/Administrator/go/pkg/mod/github.com/tiger1103/gfast-token@v1.0.10/gftoken/gftoken.go:108: token is invalid
+2025-12-30T17:31:57.379+08:00 [INFO] {44aa86ee5ef485184762b00c9fc207e9} E:/workspace/go/gfast/internal/cmd/cmd.go:24: 
+   ____________           __ 
+  / ____/ ____/___ ______/ /_
+ / / __/ /_  / __ `/ ___/ __/
+/ /_/ / __/ / /_/ (__  ) /_  
+\____/_/    \__,_/____/\__/   Version: 3.3.8
+2025-12-30T17:32:29.848+08:00 [INFO] {d8a6d77d66f48518d755d4320d7fbc29} E:/workspace/go/gfast/internal/cmd/cmd.go:24: 
+   ____________           __ 
+  / ____/ ____/___ ______/ /_
+ / / __/ /_  / __ `/ ___/ __/
+/ /_/ / __/ / /_/ (__  ) /_  
+\____/_/    \__,_/____/\__/   Version: 3.3.8
+2025-12-30T17:32:59.459+08:00 [ERRO] {907f375f67f48518d855d43235fb1a86} E:/workspace/go/gfast/library/liberr/err.go:22: 未找到网卡 Realtek PCIe GbE Family Controller 对应的连接名称 
+Stack:
+1.  github.com/tiger1103/gfast/v3/library/liberr.ErrIsNil
+    E:/workspace/go/gfast/library/liberr/err.go:22
+2.  github.com/tiger1103/gfast/v3/internal/app/common/logic/sysConfig.(*sSysConfig).SaveNetworkConfig.func1
+    E:/workspace/go/gfast/internal/app/common/logic/sysConfig/sys_config.go:297
+3.  github.com/tiger1103/gfast/v3/internal/app/common/logic/sysConfig.(*sSysConfig).SaveNetworkConfig
+    E:/workspace/go/gfast/internal/app/common/logic/sysConfig/sys_config.go:251
+4.  github.com/tiger1103/gfast/v3/internal/app/system/controller.(*configController).SaveNetworkConfig
+    E:/workspace/go/gfast/internal/app/system/controller/sys_config.go:63
+5.  github.com/tiger1103/gfast/v3/internal/app/system/logic/middleware.(*sMiddleware).Auth
+    E:/workspace/go/gfast/internal/app/system/logic/middleware/middleware.go:79
+6.  github.com/tiger1103/gfast/v3/internal/app/system/logic/middleware.(*sMiddleware).Ctx
+    E:/workspace/go/gfast/internal/app/system/logic/middleware/middleware.go:52
+7.  github.com/tiger1103/gfast-token/gftoken.(*GfToken).authMiddleware
+    C:/Users/Administrator/go/pkg/mod/github.com/tiger1103/gfast-token@v1.0.10/gftoken/middleware.go:21
+8.  github.com/tiger1103/gfast/v3/internal/app/common/logic/middleware.(*sMiddleware).MiddlewareCORS
+    E:/workspace/go/gfast/internal/app/common/logic/middleware/middleware.go:30
+
+2025-12-30T17:37:34.985+08:00 [ERRO] {c87ab6b293f48518da55d43216e73294} E:/workspace/go/gfast/library/liberr/err.go:22: 未找到网卡 Realtek PCIe GbE Family Controller 对应的连接名称 
+Stack:
+1.  github.com/tiger1103/gfast/v3/library/liberr.ErrIsNil
+    E:/workspace/go/gfast/library/liberr/err.go:22
+2.  github.com/tiger1103/gfast/v3/internal/app/common/logic/sysConfig.(*sSysConfig).SaveNetworkConfig.func1
+    E:/workspace/go/gfast/internal/app/common/logic/sysConfig/sys_config.go:297
+3.  github.com/tiger1103/gfast/v3/internal/app/common/logic/sysConfig.(*sSysConfig).SaveNetworkConfig
+    E:/workspace/go/gfast/internal/app/common/logic/sysConfig/sys_config.go:251
+4.  github.com/tiger1103/gfast/v3/internal/app/system/controller.(*configController).SaveNetworkConfig
+    E:/workspace/go/gfast/internal/app/system/controller/sys_config.go:63
+5.  github.com/tiger1103/gfast/v3/internal/app/system/logic/middleware.(*sMiddleware).Auth
+    E:/workspace/go/gfast/internal/app/system/logic/middleware/middleware.go:79
+6.  github.com/tiger1103/gfast/v3/internal/app/system/logic/middleware.(*sMiddleware).Ctx
+    E:/workspace/go/gfast/internal/app/system/logic/middleware/middleware.go:52
+7.  github.com/tiger1103/gfast-token/gftoken.(*GfToken).authMiddleware
+    C:/Users/Administrator/go/pkg/mod/github.com/tiger1103/gfast-token@v1.0.10/gftoken/middleware.go:21
+8.  github.com/tiger1103/gfast/v3/internal/app/common/logic/middleware.(*sMiddleware).MiddlewareCORS
+    E:/workspace/go/gfast/internal/app/common/logic/middleware/middleware.go:30
+
+2025-12-30T17:37:39.277+08:00 [INFO] {1c4e3989aef48518fffa5438622566b8} E:/workspace/go/gfast/internal/cmd/cmd.go:24: 
+   ____________           __ 
+  / ____/ ____/___ ______/ /_
+ / / __/ /_  / __ `/ ___/ __/
+/ /_/ / __/ / /_/ (__  ) /_  
+\____/_/    \__,_/____/\__/   Version: 3.3.8
+2025-12-30T17:37:46.697+08:00 [ERRO] {28ab75c9aff4851800fb5438130bc560} E:/workspace/go/gfast/library/liberr/err.go:22: 未找到网卡 Realtek PCIe GbE Family Controller 对应的连接名称 
+Stack:
+1.  github.com/tiger1103/gfast/v3/library/liberr.ErrIsNil
+    E:/workspace/go/gfast/library/liberr/err.go:22
+2.  github.com/tiger1103/gfast/v3/internal/app/common/logic/sysConfig.(*sSysConfig).SaveNetworkConfig.func1
+    E:/workspace/go/gfast/internal/app/common/logic/sysConfig/sys_config.go:297
+3.  github.com/tiger1103/gfast/v3/internal/app/common/logic/sysConfig.(*sSysConfig).SaveNetworkConfig
+    E:/workspace/go/gfast/internal/app/common/logic/sysConfig/sys_config.go:251
+4.  github.com/tiger1103/gfast/v3/internal/app/system/controller.(*configController).SaveNetworkConfig
+    E:/workspace/go/gfast/internal/app/system/controller/sys_config.go:63
+5.  github.com/tiger1103/gfast/v3/internal/app/system/logic/middleware.(*sMiddleware).Auth
+    E:/workspace/go/gfast/internal/app/system/logic/middleware/middleware.go:79
+6.  github.com/tiger1103/gfast/v3/internal/app/system/logic/middleware.(*sMiddleware).Ctx
+    E:/workspace/go/gfast/internal/app/system/logic/middleware/middleware.go:52
+7.  github.com/tiger1103/gfast-token/gftoken.(*GfToken).authMiddleware
+    C:/Users/Administrator/go/pkg/mod/github.com/tiger1103/gfast-token@v1.0.10/gftoken/middleware.go:21
+8.  github.com/tiger1103/gfast/v3/internal/app/common/logic/middleware.(*sMiddleware).MiddlewareCORS
+    E:/workspace/go/gfast/internal/app/common/logic/middleware/middleware.go:30
+
+2025-12-30T17:41:39.335+08:00 [ERRO] {1cc30f87e2f4851804fb5438d740129d} E:/workspace/go/gfast/library/liberr/err.go:22: 设置静态IP失败: exit status 1 
+Stack:
+1.  github.com/tiger1103/gfast/v3/library/liberr.ErrIsNil
+    E:/workspace/go/gfast/library/liberr/err.go:22
+2.  github.com/tiger1103/gfast/v3/internal/app/common/logic/sysConfig.(*sSysConfig).SaveNetworkConfig.func1
+    E:/workspace/go/gfast/internal/app/common/logic/sysConfig/sys_config.go:297
+3.  github.com/tiger1103/gfast/v3/internal/app/common/logic/sysConfig.(*sSysConfig).SaveNetworkConfig
+    E:/workspace/go/gfast/internal/app/common/logic/sysConfig/sys_config.go:251
+4.  github.com/tiger1103/gfast/v3/internal/app/system/controller.(*configController).SaveNetworkConfig
+    E:/workspace/go/gfast/internal/app/system/controller/sys_config.go:63
+5.  github.com/tiger1103/gfast/v3/internal/app/system/logic/middleware.(*sMiddleware).Auth
+    E:/workspace/go/gfast/internal/app/system/logic/middleware/middleware.go:79
+6.  github.com/tiger1103/gfast/v3/internal/app/system/logic/middleware.(*sMiddleware).Ctx
+    E:/workspace/go/gfast/internal/app/system/logic/middleware/middleware.go:52
+7.  github.com/tiger1103/gfast-token/gftoken.(*GfToken).authMiddleware
+    C:/Users/Administrator/go/pkg/mod/github.com/tiger1103/gfast-token@v1.0.10/gftoken/middleware.go:21
+8.  github.com/tiger1103/gfast/v3/internal/app/common/logic/middleware.(*sMiddleware).MiddlewareCORS
+    E:/workspace/go/gfast/internal/app/common/logic/middleware/middleware.go:30
+
+2025-12-30T17:42:32.582+08:00 [INFO] {48fc9dd3f2f485185fccbf095b3e8df5} E:/workspace/go/gfast/internal/cmd/cmd.go:24: 
+   ____________           __ 
+  / ____/ ____/___ ______/ /_
+ / / __/ /_  / __ `/ ___/ __/
+/ /_/ / __/ / /_/ (__  ) /_  
+\____/_/    \__,_/____/\__/   Version: 3.3.8

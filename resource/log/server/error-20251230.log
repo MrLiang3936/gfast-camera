@@ -1,0 +1,142 @@
+2025-12-30T16:50:24.651+08:00 {54c8428c1af28518ff4d0e1bc2e64c96} 200 "POST http localhost:8808 /api/v1/system/config/network/save HTTP/1.1" 2871.300, ::1, "", "PostmanRuntime-ApipostRuntime/1.1.0", 51, "Validation Failed", ""
+Stack:
+invalid "required-if" rule pattern: ipType==1
+2025-12-30T16:50:24.652+08:00 {54c8428c1af28518ff4d0e1bc2e64c96} 200 "POST http localhost:8808 /api/v1/system/config/network/save HTTP/1.1" 0.002, ::1, "", "PostmanRuntime-ApipostRuntime/1.1.0"
+2025-12-30T16:51:33.893+08:00 {986578ab2af28518014e0e1be88b342e} 200 "POST http localhost:8808 /api/v1/system/config/network/save HTTP/1.1" 1548.000, ::1, "", "PostmanRuntime-ApipostRuntime/1.1.0", 51, "Validation Failed", ""
+Stack:
+invalid "required-if" rule pattern: ipType==1
+2025-12-30T16:51:33.894+08:00 {986578ab2af28518014e0e1be88b342e} 200 "POST http localhost:8808 /api/v1/system/config/network/save HTTP/1.1" 0.001, ::1, "", "PostmanRuntime-ApipostRuntime/1.1.0"
+2025-12-30T16:52:05.080+08:00 200 "GET http localhost:8808 /swagger HTTP/1.1" 0.001, ::1, "http://localhost:8888/", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-12-30T16:52:05.621+08:00 {78a7d40c32f28518034e0e1b9995ee7c} 200 "GET http localhost:8808 /api.json HTTP/1.1" 0.031, ::1, "http://localhost:8808/swagger", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-12-30T16:52:06.141+08:00 {b8edaa2d32f28518044e0e1b2ef0859a} 404 "GET http localhost:8808 /cfb294d7f6536ffa8d42.worker.js.map HTTP/1.1" 0.000, ::1, "", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-12-30T17:02:06.341+08:00 {4c5d48ecbdf28518054e0e1b325b96ce} 200 "POST http localhost:8808 /api/v1/system/config/network/save HTTP/1.1" 2079.300, ::1, "", "PostmanRuntime-ApipostRuntime/1.1.0", 51, "Validation Failed", ""
+Stack:
+IP获取方式不能为空
+2025-12-30T17:02:06.341+08:00 {4c5d48ecbdf28518054e0e1b325b96ce} 200 "POST http localhost:8808 /api/v1/system/config/network/save HTTP/1.1" 0.002, ::1, "", "PostmanRuntime-ApipostRuntime/1.1.0"
+2025-12-30T17:07:12.752+08:00 pid[9588]: all servers shutdown
+2025-12-30T17:08:37.620+08:00 {783d530619f3851814483443038aab06} 200 "POST http localhost:8808 /api/v1/system/config/network/save HTTP/1.1" 1820.700, ::1, "", "PostmanRuntime-ApipostRuntime/1.1.0", 51, "Validation Failed", ""
+Stack:
+InvalidRules: regexp:^([0-9.]+,?)+$
+2025-12-30T17:08:37.620+08:00 {783d530619f3851814483443038aab06} 200 "POST http localhost:8808 /api/v1/system/config/network/save HTTP/1.1" 0.001, ::1, "", "PostmanRuntime-ApipostRuntime/1.1.0"
+2025-12-30T17:10:12.498+08:00 pid[13764]: all servers shutdown
+2025-12-30T17:11:20.293+08:00 {bcfe5be63ef3851837b3134a275014df} 200 "POST http localhost:8808 /api/v1/system/config/network/save HTTP/1.1" 2566.300, ::1, "", "PostmanRuntime-ApipostRuntime/1.1.0", 1003, "参数校验失败", ""
+Stack:
+1. 参数校验失败
+   1).  github.com/tiger1103/gfast/v3/library/liberr.NewCode
+        E:/workspace/go/gfast/library/liberr/err.go:37
+   2).  github.com/tiger1103/gfast/v3/library/liberr.ErrIsNil
+        E:/workspace/go/gfast/library/liberr/err.go:23
+   3).  github.com/tiger1103/gfast/v3/internal/app/common/logic/sysConfig.(*sSysConfig).SaveNetworkConfig.func1
+        E:/workspace/go/gfast/internal/app/common/logic/sysConfig/sys_config.go:257
+   4).  github.com/tiger1103/gfast/v3/internal/app/common/logic/sysConfig.(*sSysConfig).SaveNetworkConfig
+        E:/workspace/go/gfast/internal/app/common/logic/sysConfig/sys_config.go:251
+   5).  github.com/tiger1103/gfast/v3/internal/app/system/controller.(*configController).SaveNetworkConfig
+        E:/workspace/go/gfast/internal/app/system/controller/sys_config.go:63
+   6).  github.com/tiger1103/gfast/v3/internal/app/system/logic/middleware.(*sMiddleware).Auth
+        E:/workspace/go/gfast/internal/app/system/logic/middleware/middleware.go:79
+   7).  github.com/tiger1103/gfast/v3/internal/app/system/logic/middleware.(*sMiddleware).Ctx
+        E:/workspace/go/gfast/internal/app/system/logic/middleware/middleware.go:52
+   8).  github.com/tiger1103/gfast-token/gftoken.(*GfToken).authMiddleware
+        C:/Users/Administrator/go/pkg/mod/github.com/tiger1103/gfast-token@v1.0.10/gftoken/middleware.go:21
+   9).  github.com/tiger1103/gfast/v3/internal/app/common/logic/middleware.(*sMiddleware).MiddlewareCORS
+        E:/workspace/go/gfast/internal/app/common/logic/middleware/middleware.go:30
+
+2025-12-30T17:11:20.294+08:00 {bcfe5be63ef3851837b3134a275014df} 200 "POST http localhost:8808 /api/v1/system/config/network/save HTTP/1.1" 0.002, ::1, "", "PostmanRuntime-ApipostRuntime/1.1.0"
+2025-12-30T17:12:26.536+08:00 pid[18792]: all servers shutdown
+2025-12-30T17:13:00.753+08:00 {3468404a56f385182060bc23077bfb50} 200 "POST http localhost:8808 /api/v1/system/config/network/save HTTP/1.1" 2180.900, ::1, "", "PostmanRuntime-ApipostRuntime/1.1.0", 1003, "IP地址与子网掩码不匹配", ""
+Stack:
+1. IP地址与子网掩码不匹配
+   1).  github.com/tiger1103/gfast/v3/library/liberr.NewCode
+        E:/workspace/go/gfast/library/liberr/err.go:37
+   2).  github.com/tiger1103/gfast/v3/library/liberr.ErrIsNil
+        E:/workspace/go/gfast/library/liberr/err.go:23
+   3).  github.com/tiger1103/gfast/v3/internal/app/common/logic/sysConfig.(*sSysConfig).SaveNetworkConfig.func1
+        E:/workspace/go/gfast/internal/app/common/logic/sysConfig/sys_config.go:257
+   4).  github.com/tiger1103/gfast/v3/internal/app/common/logic/sysConfig.(*sSysConfig).SaveNetworkConfig
+        E:/workspace/go/gfast/internal/app/common/logic/sysConfig/sys_config.go:251
+   5).  github.com/tiger1103/gfast/v3/internal/app/system/controller.(*configController).SaveNetworkConfig
+        E:/workspace/go/gfast/internal/app/system/controller/sys_config.go:63
+   6).  github.com/tiger1103/gfast/v3/internal/app/system/logic/middleware.(*sMiddleware).Auth
+        E:/workspace/go/gfast/internal/app/system/logic/middleware/middleware.go:79
+   7).  github.com/tiger1103/gfast/v3/internal/app/system/logic/middleware.(*sMiddleware).Ctx
+        E:/workspace/go/gfast/internal/app/system/logic/middleware/middleware.go:52
+   8).  github.com/tiger1103/gfast-token/gftoken.(*GfToken).authMiddleware
+        C:/Users/Administrator/go/pkg/mod/github.com/tiger1103/gfast-token@v1.0.10/gftoken/middleware.go:21
+   9).  github.com/tiger1103/gfast/v3/internal/app/common/logic/middleware.(*sMiddleware).MiddlewareCORS
+        E:/workspace/go/gfast/internal/app/common/logic/middleware/middleware.go:30
+
+2025-12-30T17:13:00.753+08:00 {3468404a56f385182060bc23077bfb50} 200 "POST http localhost:8808 /api/v1/system/config/network/save HTTP/1.1" 0.002, ::1, "", "PostmanRuntime-ApipostRuntime/1.1.0"
+2025-12-30T17:22:38.823+08:00 {14c8cde1dcf385182260bc23f8035311} 200 "POST http localhost:8808 /api/v1/system/config/network/save HTTP/1.1" 3655.000, ::1, "", "PostmanRuntime-ApipostRuntime/1.1.0", 51, "Validation Failed", ""
+Stack:
+IP地址格式不正确
+2025-12-30T17:22:38.823+08:00 {14c8cde1dcf385182260bc23f8035311} 200 "POST http localhost:8808 /api/v1/system/config/network/save HTTP/1.1" 0.003, ::1, "", "PostmanRuntime-ApipostRuntime/1.1.0"
+2025-12-30T17:24:12.871+08:00 {f0ada6c7f2f385182460bc234d954fbf} 200 "POST http localhost:8808 /api/v1/system/config/network/save HTTP/1.1" 1007.400, ::1, "", "PostmanRuntime-ApipostRuntime/1.1.0", 51, "Validation Failed", ""
+Stack:
+IP地址格式不正确
+2025-12-30T17:24:12.872+08:00 {f0ada6c7f2f385182460bc234d954fbf} 200 "POST http localhost:8808 /api/v1/system/config/network/save HTTP/1.1" 0.001, ::1, "", "PostmanRuntime-ApipostRuntime/1.1.0"
+2025-12-30T17:24:19.713+08:00 {fca86a5ff4f385182660bc2378dd9a2b} 200 "POST http localhost:8808 /api/v1/system/config/network/save HTTP/1.1" 2599.900, ::1, "", "PostmanRuntime-ApipostRuntime/1.1.0", 51, "Validation Failed", ""
+Stack:
+IP地址格式不正确
+2025-12-30T17:24:19.714+08:00 {fca86a5ff4f385182660bc2378dd9a2b} 200 "POST http localhost:8808 /api/v1/system/config/network/save HTTP/1.1" 0.002, ::1, "", "PostmanRuntime-ApipostRuntime/1.1.0"
+2025-12-30T17:27:11.290+08:00 pid[25064]: all servers shutdown
+2025-12-30T17:27:53.422+08:00 {bc21892126f485187e7763482ac1d23f} 200 "POST http localhost:8808 /api/v1/system/config/network/save HTTP/1.1" 2049.000, ::1, "", "PostmanRuntime-ApipostRuntime/1.1.0", 51, "Validation Failed", ""
+Stack:
+IP地址格式不正确
+2025-12-30T17:27:53.423+08:00 {bc21892126f485187e7763482ac1d23f} 200 "POST http localhost:8808 /api/v1/system/config/network/save HTTP/1.1" 0.002, ::1, "", "PostmanRuntime-ApipostRuntime/1.1.0"
+2025-12-30T17:28:20.216+08:00 {2427885e2cf48518807763488df153c3} 200 "POST http localhost:8808 /api/v1/system/config/network/save HTTP/1.1" 2055.100, ::1, "", "PostmanRuntime-ApipostRuntime/1.1.0", 51, "Validation Failed", ""
+Stack:
+IP地址格式不正确
+2025-12-30T17:28:20.216+08:00 {2427885e2cf48518807763488df153c3} 200 "POST http localhost:8808 /api/v1/system/config/network/save HTTP/1.1" 0.002, ::1, "", "PostmanRuntime-ApipostRuntime/1.1.0"
+2025-12-30T17:30:22.010+08:00 pid[20476]: all servers shutdown
+2025-12-30T17:31:24.475+08:00 {5890334557f48518901d78331457eb97} 200 "POST http localhost:8808 /api/v1/system/config/network/save HTTP/1.1" 2078.200, ::1, "", "PostmanRuntime-ApipostRuntime/1.1.0", 51, "Validation Failed", ""
+Stack:
+IP地址格式不正确
+2025-12-30T17:31:24.475+08:00 {5890334557f48518901d78331457eb97} 200 "POST http localhost:8808 /api/v1/system/config/network/save HTTP/1.1" 0.002, ::1, "", "PostmanRuntime-ApipostRuntime/1.1.0"
+2025-12-30T17:31:52.733+08:00 pid[17356]: all servers shutdown
+2025-12-30T17:32:01.169+08:00 {a4cf28d05ff485184862b00ccfa13f7c} 200 "POST http localhost:8808 /api/v1/system/config/network/save HTTP/1.1" 6597.900, ::1, "", "PostmanRuntime-ApipostRuntime/1.1.0", 51, "Validation Failed", ""
+Stack:
+IP地址格式不正确
+2025-12-30T17:32:59.460+08:00 {907f375f67f48518d855d43235fb1a86} 200 "POST http localhost:8808 /api/v1/system/config/network/save HTTP/1.1" 25831519.200, ::1, "", "PostmanRuntime-ApipostRuntime/1.1.0", 1003, "应用网络配置失败", ""
+Stack:
+1. 应用网络配置失败
+   1).  github.com/tiger1103/gfast/v3/library/liberr.NewCode
+        E:/workspace/go/gfast/library/liberr/err.go:37
+   2).  github.com/tiger1103/gfast/v3/library/liberr.ErrIsNil
+        E:/workspace/go/gfast/library/liberr/err.go:23
+   3).  github.com/tiger1103/gfast/v3/internal/app/common/logic/sysConfig.(*sSysConfig).SaveNetworkConfig.func1
+        E:/workspace/go/gfast/internal/app/common/logic/sysConfig/sys_config.go:297
+   4).  github.com/tiger1103/gfast/v3/internal/app/common/logic/sysConfig.(*sSysConfig).SaveNetworkConfig
+        E:/workspace/go/gfast/internal/app/common/logic/sysConfig/sys_config.go:251
+   5).  github.com/tiger1103/gfast/v3/internal/app/system/controller.(*configController).SaveNetworkConfig
+        E:/workspace/go/gfast/internal/app/system/controller/sys_config.go:63
+   6).  github.com/tiger1103/gfast/v3/internal/app/system/logic/middleware.(*sMiddleware).Auth
+        E:/workspace/go/gfast/internal/app/system/logic/middleware/middleware.go:79
+   7).  github.com/tiger1103/gfast/v3/internal/app/system/logic/middleware.(*sMiddleware).Ctx
+        E:/workspace/go/gfast/internal/app/system/logic/middleware/middleware.go:52
+   8).  github.com/tiger1103/gfast-token/gftoken.(*GfToken).authMiddleware
+        C:/Users/Administrator/go/pkg/mod/github.com/tiger1103/gfast-token@v1.0.10/gftoken/middleware.go:21
+   9).  github.com/tiger1103/gfast/v3/internal/app/common/logic/middleware.(*sMiddleware).MiddlewareCORS
+        E:/workspace/go/gfast/internal/app/common/logic/middleware/middleware.go:30
+
+2025-12-30T17:37:46.698+08:00 {28ab75c9aff4851800fb5438130bc560} 200 "POST http localhost:8808 /api/v1/system/config/network/save HTTP/1.1" 2050135.300, ::1, "", "PostmanRuntime-ApipostRuntime/1.1.0", 1003, "未找到网卡 Realtek PCIe GbE Family Controller 对应的连接名称", ""
+Stack:
+1. 未找到网卡 Realtek PCIe GbE Family Controller 对应的连接名称
+   1).  github.com/tiger1103/gfast/v3/library/liberr.NewCode
+        E:/workspace/go/gfast/library/liberr/err.go:37
+   2).  github.com/tiger1103/gfast/v3/library/liberr.ErrIsNil
+        E:/workspace/go/gfast/library/liberr/err.go:23
+   3).  github.com/tiger1103/gfast/v3/internal/app/common/logic/sysConfig.(*sSysConfig).SaveNetworkConfig.func1
+        E:/workspace/go/gfast/internal/app/common/logic/sysConfig/sys_config.go:297
+   4).  github.com/tiger1103/gfast/v3/internal/app/common/logic/sysConfig.(*sSysConfig).SaveNetworkConfig
+        E:/workspace/go/gfast/internal/app/common/logic/sysConfig/sys_config.go:251
+   5).  github.com/tiger1103/gfast/v3/internal/app/system/controller.(*configController).SaveNetworkConfig
+        E:/workspace/go/gfast/internal/app/system/controller/sys_config.go:63
+   6).  github.com/tiger1103/gfast/v3/internal/app/system/logic/middleware.(*sMiddleware).Auth
+        E:/workspace/go/gfast/internal/app/system/logic/middleware/middleware.go:79
+   7).  github.com/tiger1103/gfast/v3/internal/app/system/logic/middleware.(*sMiddleware).Ctx
+        E:/workspace/go/gfast/internal/app/system/logic/middleware/middleware.go:52
+   8).  github.com/tiger1103/gfast-token/gftoken.(*GfToken).authMiddleware
+        C:/Users/Administrator/go/pkg/mod/github.com/tiger1103/gfast-token@v1.0.10/gftoken/middleware.go:21
+   9).  github.com/tiger1103/gfast/v3/internal/app/common/logic/middleware.(*sMiddleware).MiddlewareCORS
+        E:/workspace/go/gfast/internal/app/common/logic/middleware/middleware.go:30
+

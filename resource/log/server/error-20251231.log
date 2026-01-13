@@ -1,0 +1,260 @@
+2025-12-31T09:23:24.263+08:00 {9471b47f4a288618bf7c6f258460f52f} 200 "POST http localhost:8808 /api/v1/system/login HTTP/1.1" 38325.700, ::1, "http://192.168.2.130:8888/", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36", -1, "", ""
+Stack:
+1. 登录失败，后端服务出现错误
+   1).  github.com/tiger1103/gfast/v3/internal/app/system/controller.(*loginController).Login
+        E:/workspace/go/gfast/internal/app/system/controller/sys_login.go:85
+   2).  github.com/tiger1103/gfast/v3/internal/app/common/logic/middleware.(*sMiddleware).MiddlewareCORS
+        E:/workspace/go/gfast/internal/app/common/logic/middleware/middleware.go:30
+
+2025-12-31T09:23:24.264+08:00 {9471b47f4a288618bf7c6f258460f52f} 200 "POST http localhost:8808 /api/v1/system/login HTTP/1.1" 0.038, ::1, "http://192.168.2.130:8888/", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-12-31T09:23:24.271+08:00 {70874c824a288618c17c6f250b98c8e6} 200 "GET http localhost:8808 /api/v1/pub/captcha/get HTTP/1.1" 0.003, ::1, "http://192.168.2.130:8888/", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-12-31T09:23:50.912+08:00 {c8a7cdb450288618c27c6f2538c8bfbe} 200 "POST http localhost:8808 /api/v1/system/login HTTP/1.1" 0.027, ::1, "http://192.168.2.130:8888/", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-12-31T09:23:51.501+08:00 {309b8ed950288618c57c6f25626cd471} 404 "GET http localhost:8808 /upload_file/2022-11-11/co9copop81co0gysbz.jpg HTTP/1.1" 0.000, ::1, "http://192.168.2.130:8888/", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-12-31T09:24:44.436+08:00 {3068b72c5d288618c67c6f25421f1aac} 200 "OPTIONS http localhost:8808 /api/v1/system/monitor/server HTTP/1.1" 0.000, ::1, "http://192.168.2.130:8888/", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-12-31T09:24:45.459+08:00 {5842d82c5d288618c77c6f25bb6b88a4} 200 "GET http localhost:8808 /api/v1/system/monitor/server HTTP/1.1" 1.020, ::1, "http://192.168.2.130:8888/", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-12-31T09:24:49.004+08:00 {6045f33c5e288618c97c6f25ff5370a3} 200 "OPTIONS http localhost:8808 /api/v1/system/dict/data/getDictData?dictType=sys_yes_no&defaultValue= HTTP/1.1" 0.000, ::1, "http://192.168.2.130:8888/", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-12-31T09:24:49.006+08:00 {74f8083d5e288618ca7c6f2557abb2a2} 200 "GET http localhost:8808 /api/v1/system/dict/data/getDictData?dictType=sys_yes_no&defaultValue= HTTP/1.1" 0.001, ::1, "http://192.168.2.130:8888/", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-12-31T09:24:49.007+08:00 {40f6203d5e288618cc7c6f25931a661d} 200 "OPTIONS http localhost:8808 /api/v1/system/config/list?pageNum=1&pageSize=10&configName=&configKey=&configType= HTTP/1.1" 0.000, ::1, "http://192.168.2.130:8888/", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-12-31T09:24:49.017+08:00 {6c5a363d5e288618cd7c6f25468213cd} 200 "GET http localhost:8808 /api/v1/system/config/list?pageNum=1&pageSize=10&configName=&configKey=&configType= HTTP/1.1" 0.009, ::1, "http://192.168.2.130:8888/", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-12-31T09:24:50.642+08:00 {64d39f9e5e288618cf7c6f25a60c4a48} 200 "OPTIONS http localhost:8808 /api/v1/system/dict/type/list?pageNum=1&pageSize=10&dictName=&dictType=&status= HTTP/1.1" 0.000, ::1, "http://192.168.2.130:8888/", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-12-31T09:24:50.661+08:00 {d811b19e5e288618d07c6f2562aa6df8} 200 "GET http localhost:8808 /api/v1/system/dict/type/list?pageNum=1&pageSize=10&dictName=&dictType=&status= HTTP/1.1" 0.017, ::1, "http://192.168.2.130:8888/", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-12-31T09:42:22.017+08:00 {54f86f6953298618d27c6f25fd9194e2} 200 "OPTIONS http localhost:8808 /api/v1/system/dict/type/list?pageNum=1&pageSize=10&dictName=&dictType=&status= HTTP/1.1" 0.000, ::1, "http://192.168.2.130:8888/", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-12-31T09:42:22.028+08:00 {60298d6953298618d37c6f25de7c5d0f} 200 "GET http localhost:8808 /api/v1/system/dict/type/list?pageNum=1&pageSize=10&dictName=&dictType=&status= HTTP/1.1" 0.009, ::1, "http://192.168.2.130:8888/", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-12-31T09:42:42.000+08:00 {b8c9ef0e58298618d57c6f2561aba5eb} 200 "GET http localhost:8808 /api/v1/system/config/network/list HTTP/1.1" 0.026, ::1, "", "PostmanRuntime-ApipostRuntime/1.1.0"
+2025-12-31T09:45:31.737+08:00 {d4e568867f298618d77c6f256e9153ce} 200 "POST http localhost:8808 /api/v1/system/config/network/save HTTP/1.1" 255591.200, ::1, "", "PostmanRuntime-ApipostRuntime/1.1.0", 1003, "设置静态IP失败: exit status 1", ""
+Stack:
+1. 设置静态IP失败: exit status 1
+   1).  github.com/tiger1103/gfast/v3/library/liberr.NewCode
+        E:/workspace/go/gfast/library/liberr/err.go:37
+   2).  github.com/tiger1103/gfast/v3/library/liberr.ErrIsNil
+        E:/workspace/go/gfast/library/liberr/err.go:23
+   3).  github.com/tiger1103/gfast/v3/internal/app/common/logic/sysConfig.(*sSysConfig).SaveNetworkConfig.func1
+        E:/workspace/go/gfast/internal/app/common/logic/sysConfig/sys_config.go:297
+   4).  github.com/tiger1103/gfast/v3/internal/app/common/logic/sysConfig.(*sSysConfig).SaveNetworkConfig
+        E:/workspace/go/gfast/internal/app/common/logic/sysConfig/sys_config.go:251
+   5).  github.com/tiger1103/gfast/v3/internal/app/system/controller.(*configController).SaveNetworkConfig
+        E:/workspace/go/gfast/internal/app/system/controller/sys_config.go:63
+   6).  github.com/tiger1103/gfast/v3/internal/app/system/logic/middleware.(*sMiddleware).Auth
+        E:/workspace/go/gfast/internal/app/system/logic/middleware/middleware.go:79
+   7).  github.com/tiger1103/gfast/v3/internal/app/system/logic/middleware.(*sMiddleware).Ctx
+        E:/workspace/go/gfast/internal/app/system/logic/middleware/middleware.go:52
+   8).  github.com/tiger1103/gfast-token/gftoken.(*GfToken).authMiddleware
+        C:/Users/Administrator/go/pkg/mod/github.com/tiger1103/gfast-token@v1.0.10/gftoken/middleware.go:21
+   9).  github.com/tiger1103/gfast/v3/internal/app/common/logic/middleware.(*sMiddleware).MiddlewareCORS
+        E:/workspace/go/gfast/internal/app/common/logic/middleware/middleware.go:30
+
+2025-12-31T09:45:31.738+08:00 {d4e568867f298618d77c6f256e9153ce} 200 "POST http localhost:8808 /api/v1/system/config/network/save HTTP/1.1" 0.255, ::1, "", "PostmanRuntime-ApipostRuntime/1.1.0"
+2025-12-31T09:47:37.893+08:00 pid[15492]: all servers shutdown
+2025-12-31T09:47:52.620+08:00 {747f0b089f2986184f8ce17fdd7a056a} 200 "POST http localhost:8808 /api/v1/system/config/network/save HTTP/1.1" 5819274.900, ::1, "", "PostmanRuntime-ApipostRuntime/1.1.0", 1003, "设置静态IP失败: exit status 1", ""
+Stack:
+1. 设置静态IP失败: exit status 1
+   1).  github.com/tiger1103/gfast/v3/library/liberr.NewCode
+        E:/workspace/go/gfast/library/liberr/err.go:37
+   2).  github.com/tiger1103/gfast/v3/library/liberr.ErrIsNil
+        E:/workspace/go/gfast/library/liberr/err.go:23
+   3).  github.com/tiger1103/gfast/v3/internal/app/common/logic/sysConfig.(*sSysConfig).SaveNetworkConfig.func1
+        E:/workspace/go/gfast/internal/app/common/logic/sysConfig/sys_config.go:297
+   4).  github.com/tiger1103/gfast/v3/internal/app/common/logic/sysConfig.(*sSysConfig).SaveNetworkConfig
+        E:/workspace/go/gfast/internal/app/common/logic/sysConfig/sys_config.go:251
+   5).  github.com/tiger1103/gfast/v3/internal/app/system/controller.(*configController).SaveNetworkConfig
+        E:/workspace/go/gfast/internal/app/system/controller/sys_config.go:63
+   6).  github.com/tiger1103/gfast/v3/internal/app/system/logic/middleware.(*sMiddleware).Auth
+        E:/workspace/go/gfast/internal/app/system/logic/middleware/middleware.go:79
+   7).  github.com/tiger1103/gfast/v3/internal/app/system/logic/middleware.(*sMiddleware).Ctx
+        E:/workspace/go/gfast/internal/app/system/logic/middleware/middleware.go:52
+   8).  github.com/tiger1103/gfast-token/gftoken.(*GfToken).authMiddleware
+        C:/Users/Administrator/go/pkg/mod/github.com/tiger1103/gfast-token@v1.0.10/gftoken/middleware.go:21
+   9).  github.com/tiger1103/gfast/v3/internal/app/common/logic/middleware.(*sMiddleware).MiddlewareCORS
+        E:/workspace/go/gfast/internal/app/common/logic/middleware/middleware.go:30
+
+2025-12-31T10:13:12.881+08:00 {a8694b59022b861808fb77111eb8a76c} 200 "POST http localhost:8808 /api/v1/system/config/network/save HTTP/1.1" 4124.000, ::1, "", "PostmanRuntime-ApipostRuntime/1.1.0", 1003, "IP地址与子网掩码不匹配", ""
+Stack:
+1. IP地址与子网掩码不匹配
+   1).  github.com/tiger1103/gfast/v3/library/liberr.NewCode
+        E:/workspace/go/gfast/library/liberr/err.go:37
+   2).  github.com/tiger1103/gfast/v3/library/liberr.ErrIsNil
+        E:/workspace/go/gfast/library/liberr/err.go:23
+   3).  github.com/tiger1103/gfast/v3/internal/app/common/logic/sysConfig.(*sSysConfig).SaveNetworkConfig.func1
+        E:/workspace/go/gfast/internal/app/common/logic/sysConfig/sys_config.go:263
+   4).  github.com/tiger1103/gfast/v3/internal/app/common/logic/sysConfig.(*sSysConfig).SaveNetworkConfig
+        E:/workspace/go/gfast/internal/app/common/logic/sysConfig/sys_config.go:251
+   5).  github.com/tiger1103/gfast/v3/internal/app/system/controller.(*configController).SaveNetworkConfig
+        E:/workspace/go/gfast/internal/app/system/controller/sys_config.go:63
+   6).  github.com/tiger1103/gfast/v3/internal/app/system/logic/middleware.(*sMiddleware).Auth
+        E:/workspace/go/gfast/internal/app/system/logic/middleware/middleware.go:79
+   7).  github.com/tiger1103/gfast/v3/internal/app/system/logic/middleware.(*sMiddleware).Ctx
+        E:/workspace/go/gfast/internal/app/system/logic/middleware/middleware.go:52
+   8).  github.com/tiger1103/gfast-token/gftoken.(*GfToken).authMiddleware
+        C:/Users/Administrator/go/pkg/mod/github.com/tiger1103/gfast-token@v1.0.10/gftoken/middleware.go:21
+   9).  github.com/tiger1103/gfast/v3/internal/app/common/logic/middleware.(*sMiddleware).MiddlewareCORS
+        E:/workspace/go/gfast/internal/app/common/logic/middleware/middleware.go:30
+
+2025-12-31T10:17:39.983+08:00 {a44583483a2b861890d1702a379f2f4f} 200 "POST http localhost:8808 /api/v1/system/config/network/save HTTP/1.1" 26868828.100, ::1, "", "PostmanRuntime-ApipostRuntime/1.1.0", 1003, "设置静态IP失败: exit status 1", ""
+Stack:
+1. 设置静态IP失败: exit status 1
+   1).  github.com/tiger1103/gfast/v3/library/liberr.NewCode
+        E:/workspace/go/gfast/library/liberr/err.go:37
+   2).  github.com/tiger1103/gfast/v3/library/liberr.ErrIsNil
+        E:/workspace/go/gfast/library/liberr/err.go:23
+   3).  github.com/tiger1103/gfast/v3/internal/app/common/logic/sysConfig.(*sSysConfig).SaveNetworkConfig.func1
+        E:/workspace/go/gfast/internal/app/common/logic/sysConfig/sys_config.go:303
+   4).  github.com/tiger1103/gfast/v3/internal/app/common/logic/sysConfig.(*sSysConfig).SaveNetworkConfig
+        E:/workspace/go/gfast/internal/app/common/logic/sysConfig/sys_config.go:251
+   5).  github.com/tiger1103/gfast/v3/internal/app/system/controller.(*configController).SaveNetworkConfig
+        E:/workspace/go/gfast/internal/app/system/controller/sys_config.go:63
+   6).  github.com/tiger1103/gfast/v3/internal/app/system/logic/middleware.(*sMiddleware).Auth
+        E:/workspace/go/gfast/internal/app/system/logic/middleware/middleware.go:79
+   7).  github.com/tiger1103/gfast/v3/internal/app/system/logic/middleware.(*sMiddleware).Ctx
+        E:/workspace/go/gfast/internal/app/system/logic/middleware/middleware.go:52
+   8).  github.com/tiger1103/gfast-token/gftoken.(*GfToken).authMiddleware
+        C:/Users/Administrator/go/pkg/mod/github.com/tiger1103/gfast-token@v1.0.10/gftoken/middleware.go:21
+   9).  github.com/tiger1103/gfast/v3/internal/app/common/logic/middleware.(*sMiddleware).MiddlewareCORS
+        E:/workspace/go/gfast/internal/app/common/logic/middleware/middleware.go:30
+
+2025-12-31T11:09:22.347+08:00 {a0aad41f122e8618e84cb57916695c32} 200 "POST http localhost:8808 /api/v1/system/config/network/save HTTP/1.1" 3178739.100, ::1, "", "PostmanRuntime-ApipostRuntime/1.1.0", 68, "Internal Panic", ""
+Stack:
+1. runtime error: invalid memory address or nil pointer dereference
+   1).  github.com/tiger1103/gfast/v3/internal/app/common/logic/sysConfig.(*sSysConfig).SaveNetworkConfig.func1
+        E:/workspace/go/gfast/internal/app/common/logic/sysConfig/sys_config.go:303
+   2).  github.com/tiger1103/gfast/v3/internal/app/common/logic/sysConfig.(*sSysConfig).SaveNetworkConfig
+        E:/workspace/go/gfast/internal/app/common/logic/sysConfig/sys_config.go:251
+   3).  github.com/tiger1103/gfast/v3/internal/app/system/controller.(*configController).SaveNetworkConfig
+        E:/workspace/go/gfast/internal/app/system/controller/sys_config.go:63
+   4).  github.com/tiger1103/gfast/v3/internal/app/system/logic/middleware.(*sMiddleware).Auth
+        E:/workspace/go/gfast/internal/app/system/logic/middleware/middleware.go:79
+   5).  github.com/tiger1103/gfast/v3/internal/app/system/logic/middleware.(*sMiddleware).Ctx
+        E:/workspace/go/gfast/internal/app/system/logic/middleware/middleware.go:52
+   6).  github.com/tiger1103/gfast-token/gftoken.(*GfToken).authMiddleware
+        C:/Users/Administrator/go/pkg/mod/github.com/tiger1103/gfast-token@v1.0.10/gftoken/middleware.go:21
+   7).  github.com/tiger1103/gfast/v3/internal/app/common/logic/middleware.(*sMiddleware).MiddlewareCORS
+        E:/workspace/go/gfast/internal/app/common/logic/middleware/middleware.go:30
+
+2025-12-31T11:22:49.110+08:00 {7c034b23cc2e86183f55f42a9aaf3bc5} 200 "POST http localhost:8808 /api/v1/system/config/network/save HTTP/1.1" 11020606.000, ::1, "", "PostmanRuntime-ApipostRuntime/1.1.0", 68, "Internal Panic", ""
+Stack:
+1. runtime error: invalid memory address or nil pointer dereference
+   1).  github.com/tiger1103/gfast/v3/internal/app/common/logic/sysConfig.(*sSysConfig).SaveNetworkConfig.func1
+        E:/workspace/go/gfast/internal/app/common/logic/sysConfig/sys_config.go:312
+   2).  github.com/tiger1103/gfast/v3/internal/app/common/logic/sysConfig.(*sSysConfig).SaveNetworkConfig
+        E:/workspace/go/gfast/internal/app/common/logic/sysConfig/sys_config.go:251
+   3).  github.com/tiger1103/gfast/v3/internal/app/system/controller.(*configController).SaveNetworkConfig
+        E:/workspace/go/gfast/internal/app/system/controller/sys_config.go:68
+   4).  github.com/tiger1103/gfast/v3/internal/app/system/logic/middleware.(*sMiddleware).Auth
+        E:/workspace/go/gfast/internal/app/system/logic/middleware/middleware.go:79
+   5).  github.com/tiger1103/gfast/v3/internal/app/system/logic/middleware.(*sMiddleware).Ctx
+        E:/workspace/go/gfast/internal/app/system/logic/middleware/middleware.go:52
+   6).  github.com/tiger1103/gfast-token/gftoken.(*GfToken).authMiddleware
+        C:/Users/Administrator/go/pkg/mod/github.com/tiger1103/gfast-token@v1.0.10/gftoken/middleware.go:21
+   7).  github.com/tiger1103/gfast/v3/internal/app/common/logic/middleware.(*sMiddleware).MiddlewareCORS
+        E:/workspace/go/gfast/internal/app/common/logic/middleware/middleware.go:30
+
+2025-12-31T11:22:49.110+08:00 {7c034b23cc2e86183f55f42a9aaf3bc5} 200 "POST http localhost:8808 /api/v1/system/config/network/save HTTP/1.1" 11.020, ::1, "", "PostmanRuntime-ApipostRuntime/1.1.0"
+2025-12-31T11:33:40.712+08:00 pid[9628]: all servers shutdown
+2025-12-31T15:58:34.820+08:00 {980e300ddb3d86186f79125e0a1cae9a} 500 "GET http localhost:8808 /api/v1/system/camera/list?pageNum=1&pageSize=10&cameraName=&groupId=&deviceType= HTTP/1.1" 3087.700, ::1, "http://192.168.2.130:8888/", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36", 68, "Internal Panic", ""
+Stack:
+1. exception recovered: implement not found for interface ISysCamera, forgot register?
+   1).  github.com/tiger1103/gfast/v3/internal/app/system/service.SysCamera
+        E:/workspace/go/gfast/internal/app/system/service/sys_camera.go:26
+   2).  github.com/tiger1103/gfast/v3/internal/app/system/controller.(*cameraController).List
+        E:/workspace/go/gfast/internal/app/system/controller/sys_camera.go:25
+   3).  github.com/tiger1103/gfast/v3/internal/app/system/logic/middleware.(*sMiddleware).Auth
+        E:/workspace/go/gfast/internal/app/system/logic/middleware/middleware.go:79
+   4).  github.com/tiger1103/gfast/v3/internal/app/system/logic/middleware.(*sMiddleware).Ctx
+        E:/workspace/go/gfast/internal/app/system/logic/middleware/middleware.go:52
+   5).  github.com/tiger1103/gfast-token/gftoken.(*GfToken).authMiddleware
+        C:/Users/Administrator/go/pkg/mod/github.com/tiger1103/gfast-token@v1.0.10/gftoken/middleware.go:21
+   6).  github.com/tiger1103/gfast/v3/internal/app/common/logic/middleware.(*sMiddleware).MiddlewareCORS
+        E:/workspace/go/gfast/internal/app/common/logic/middleware/middleware.go:30
+
+2025-12-31T15:58:34.822+08:00 {980e300ddb3d86186f79125e0a1cae9a} 500 "GET http localhost:8808 /api/v1/system/camera/list?pageNum=1&pageSize=10&cameraName=&groupId=&deviceType= HTTP/1.1" 0.003, ::1, "http://192.168.2.130:8888/", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-12-31T16:19:18.086+08:00 pid[5668]: all servers shutdown
+2025-12-31T16:20:02.687+08:00 {ac9033e7063f861874aff958e017e6ef} 200 "GET http localhost:8808 /api/v1/system/camera/list?pageNum=1&pageSize=10&cameraName=&groupId=&deviceType= HTTP/1.1" 16519.600, ::1, "http://192.168.2.130:8888/", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36", 1003, "获取岗位失败", ""
+Stack:
+1. 获取岗位失败
+   1).  github.com/tiger1103/gfast/v3/library/liberr.NewCode
+        E:/workspace/go/gfast/library/liberr/err.go:37
+   2).  github.com/tiger1103/gfast/v3/library/liberr.ErrIsNil
+        E:/workspace/go/gfast/library/liberr/err.go:23
+   3).  github.com/tiger1103/gfast/v3/internal/app/system/logic/sysCamera.(*sSysCamera).List.func1
+        E:/workspace/go/gfast/internal/app/system/logic/sysCamera/sys_camera.go:47
+   4).  github.com/tiger1103/gfast/v3/internal/app/system/logic/sysCamera.(*sSysCamera).List
+        E:/workspace/go/gfast/internal/app/system/logic/sysCamera/sys_camera.go:36
+   5).  github.com/tiger1103/gfast/v3/internal/app/system/controller.(*cameraController).List
+        E:/workspace/go/gfast/internal/app/system/controller/sys_camera.go:25
+   6).  github.com/tiger1103/gfast/v3/internal/app/system/logic/middleware.(*sMiddleware).Auth
+        E:/workspace/go/gfast/internal/app/system/logic/middleware/middleware.go:79
+   7).  github.com/tiger1103/gfast/v3/internal/app/system/logic/middleware.(*sMiddleware).Ctx
+        E:/workspace/go/gfast/internal/app/system/logic/middleware/middleware.go:52
+   8).  github.com/tiger1103/gfast-token/gftoken.(*GfToken).authMiddleware
+        C:/Users/Administrator/go/pkg/mod/github.com/tiger1103/gfast-token@v1.0.10/gftoken/middleware.go:21
+   9).  github.com/tiger1103/gfast/v3/internal/app/common/logic/middleware.(*sMiddleware).MiddlewareCORS
+        E:/workspace/go/gfast/internal/app/common/logic/middleware/middleware.go:30
+
+2025-12-31T16:20:02.687+08:00 {ac9033e7063f861874aff958e017e6ef} 200 "GET http localhost:8808 /api/v1/system/camera/list?pageNum=1&pageSize=10&cameraName=&groupId=&deviceType= HTTP/1.1" 0.016, ::1, "http://192.168.2.130:8888/", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-12-31T16:25:53.797+08:00 {e8baf1a7583f861876aff95877453150} 200 "OPTIONS http localhost:8808 /api/v1/system/camera/list?pageNum=1&pageSize=10&cameraName=&groupId=&deviceType= HTTP/1.1" 0.000, ::1, "http://192.168.2.130:8888/", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-12-31T16:25:53.817+08:00 {c88f19a8583f861877aff958e713835e} 200 "GET http localhost:8808 /api/v1/system/camera/list?pageNum=1&pageSize=10&cameraName=&groupId=&deviceType= HTTP/1.1" 17510.600, ::1, "http://192.168.2.130:8888/", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36", 1003, "获取岗位失败", ""
+Stack:
+1. 获取岗位失败
+   1).  github.com/tiger1103/gfast/v3/library/liberr.NewCode
+        E:/workspace/go/gfast/library/liberr/err.go:37
+   2).  github.com/tiger1103/gfast/v3/library/liberr.ErrIsNil
+        E:/workspace/go/gfast/library/liberr/err.go:23
+   3).  github.com/tiger1103/gfast/v3/internal/app/system/logic/sysCamera.(*sSysCamera).List.func1
+        E:/workspace/go/gfast/internal/app/system/logic/sysCamera/sys_camera.go:56
+   4).  github.com/tiger1103/gfast/v3/internal/app/system/logic/sysCamera.(*sSysCamera).List
+        E:/workspace/go/gfast/internal/app/system/logic/sysCamera/sys_camera.go:36
+   5).  github.com/tiger1103/gfast/v3/internal/app/system/controller.(*cameraController).List
+        E:/workspace/go/gfast/internal/app/system/controller/sys_camera.go:25
+   6).  github.com/tiger1103/gfast/v3/internal/app/system/logic/middleware.(*sMiddleware).Auth
+        E:/workspace/go/gfast/internal/app/system/logic/middleware/middleware.go:79
+   7).  github.com/tiger1103/gfast/v3/internal/app/system/logic/middleware.(*sMiddleware).Ctx
+        E:/workspace/go/gfast/internal/app/system/logic/middleware/middleware.go:52
+   8).  github.com/tiger1103/gfast-token/gftoken.(*GfToken).authMiddleware
+        C:/Users/Administrator/go/pkg/mod/github.com/tiger1103/gfast-token@v1.0.10/gftoken/middleware.go:21
+   9).  github.com/tiger1103/gfast/v3/internal/app/common/logic/middleware.(*sMiddleware).MiddlewareCORS
+        E:/workspace/go/gfast/internal/app/common/logic/middleware/middleware.go:30
+
+2025-12-31T16:25:53.817+08:00 {c88f19a8583f861877aff958e713835e} 200 "GET http localhost:8808 /api/v1/system/camera/list?pageNum=1&pageSize=10&cameraName=&groupId=&deviceType= HTTP/1.1" 0.017, ::1, "http://192.168.2.130:8888/", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-12-31T16:26:00.954+08:00 {8cec97525a3f861879aff95837ee3784} 200 "OPTIONS http localhost:8808 /api/v1/system/camera/list?pageNum=1&pageSize=10&cameraName=&groupId=&deviceType= HTTP/1.1" 0.000, ::1, "http://192.168.2.130:8888/", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-12-31T16:26:00.962+08:00 {54cbbe525a3f86187aaff95870127c00} 200 "GET http localhost:8808 /api/v1/system/camera/list?pageNum=1&pageSize=10&cameraName=&groupId=&deviceType= HTTP/1.1" 5590.600, ::1, "http://192.168.2.130:8888/", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36", 1003, "获取岗位失败", ""
+Stack:
+1. 获取岗位失败
+   1).  github.com/tiger1103/gfast/v3/library/liberr.NewCode
+        E:/workspace/go/gfast/library/liberr/err.go:37
+   2).  github.com/tiger1103/gfast/v3/library/liberr.ErrIsNil
+        E:/workspace/go/gfast/library/liberr/err.go:23
+   3).  github.com/tiger1103/gfast/v3/internal/app/system/logic/sysCamera.(*sSysCamera).List.func1
+        E:/workspace/go/gfast/internal/app/system/logic/sysCamera/sys_camera.go:56
+   4).  github.com/tiger1103/gfast/v3/internal/app/system/logic/sysCamera.(*sSysCamera).List
+        E:/workspace/go/gfast/internal/app/system/logic/sysCamera/sys_camera.go:36
+   5).  github.com/tiger1103/gfast/v3/internal/app/system/controller.(*cameraController).List
+        E:/workspace/go/gfast/internal/app/system/controller/sys_camera.go:25
+   6).  github.com/tiger1103/gfast/v3/internal/app/system/logic/middleware.(*sMiddleware).Auth
+        E:/workspace/go/gfast/internal/app/system/logic/middleware/middleware.go:79
+   7).  github.com/tiger1103/gfast/v3/internal/app/system/logic/middleware.(*sMiddleware).Ctx
+        E:/workspace/go/gfast/internal/app/system/logic/middleware/middleware.go:52
+   8).  github.com/tiger1103/gfast-token/gftoken.(*GfToken).authMiddleware
+        C:/Users/Administrator/go/pkg/mod/github.com/tiger1103/gfast-token@v1.0.10/gftoken/middleware.go:21
+   9).  github.com/tiger1103/gfast/v3/internal/app/common/logic/middleware.(*sMiddleware).MiddlewareCORS
+        E:/workspace/go/gfast/internal/app/common/logic/middleware/middleware.go:30
+
+2025-12-31T16:26:00.962+08:00 {54cbbe525a3f86187aaff95870127c00} 200 "GET http localhost:8808 /api/v1/system/camera/list?pageNum=1&pageSize=10&cameraName=&groupId=&deviceType= HTTP/1.1" 0.005, ::1, "http://192.168.2.130:8888/", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-12-31T16:26:41.815+08:00 pid[21000]: all servers shutdown
+2025-12-31T16:38:58.234+08:00 {a0adcd4b0f40861850c0f448b1f550f5} 200 "GET http localhost:8808 /api/v1/system/camera/get HTTP/1.1" 4245.100, ::1, "http://192.168.2.130:8888/", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36", 51, "Validation Failed", ""
+Stack:
+摄像头ID不能为空
+2025-12-31T16:38:58.235+08:00 {a0adcd4b0f40861850c0f448b1f550f5} 200 "GET http localhost:8808 /api/v1/system/camera/get HTTP/1.1" 0.004, ::1, "http://192.168.2.130:8888/", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-12-31T16:43:16.578+08:00 {48a192724b40861852c0f44873851467} 200 "OPTIONS http localhost:8808 /api/v1/system/camera/list?pageNum=1&pageSize=10&cameraName=&groupId=&deviceType= HTTP/1.1" 0.000, ::1, "http://192.168.2.130:8888/", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-12-31T16:43:16.604+08:00 {5cfead724b40861853c0f448bba7ae55} 200 "GET http localhost:8808 /api/v1/system/camera/list?pageNum=1&pageSize=10&cameraName=&groupId=&deviceType= HTTP/1.1" 0.024, ::1, "http://192.168.2.130:8888/", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-12-31T16:54:50.167+08:00 {9c31b7efec40861855c0f44825feff91} 404 "OPTIONS http localhost:8808 /api/v1/system/camera/group/list HTTP/1.1" 0.000, ::1, "http://192.168.2.130:8888/", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-12-31T16:54:50.168+08:00 {3c11bfefec40861856c0f4484aa154a1} 200 "OPTIONS http localhost:8808 /api/v1/system/camera/list?pageNum=1&pageSize=10&cameraName=&groupId=&deviceType= HTTP/1.1" 0.000, ::1, "http://192.168.2.130:8888/", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-12-31T16:54:50.179+08:00 {d4d4d6efec40861857c0f448cc4dce51} 200 "GET http localhost:8808 /api/v1/system/camera/list?pageNum=1&pageSize=10&cameraName=&groupId=&deviceType= HTTP/1.1" 0.009, ::1, "http://192.168.2.130:8888/", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-12-31T16:54:55.368+08:00 {4406b825ee40861859c0f448ccc616e4} 200 "OPTIONS http localhost:8808 /api/v1/system/camera/list?pageNum=1&pageSize=10&cameraName=&groupId=&deviceType= HTTP/1.1" 0.000, ::1, "http://192.168.2.130:8888/", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-12-31T16:54:55.375+08:00 {cc4bd125ee4086185ac0f448dc5d454a} 200 "GET http localhost:8808 /api/v1/system/camera/list?pageNum=1&pageSize=10&cameraName=&groupId=&deviceType= HTTP/1.1" 0.005, ::1, "http://192.168.2.130:8888/", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-12-31T16:54:59.442+08:00 {18a48918ef4086185cc0f448b8098f2c} 200 "OPTIONS http localhost:8808 /api/v1/system/camera/get?id=1 HTTP/1.1" 0.000, ::1, "http://192.168.2.130:8888/", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-12-31T16:54:59.449+08:00 {084ca618ef4086185dc0f44893303a04} 200 "GET http localhost:8808 /api/v1/system/camera/get?id=1 HTTP/1.1" 0.005, ::1, "http://192.168.2.130:8888/", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-12-31T16:55:35.451+08:00 {d40ad47af74086185fc0f44884bce3a8} 200 "GET http localhost:8808 /api/v1/system/camera/get?id=1 HTTP/1.1" 0.000, ::1, "", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-12-31T16:55:35.471+08:00 {ac7f087cf740861860c0f44816af5236} 404 "GET http localhost:8808 /favicon.ico HTTP/1.1" 0.000, ::1, "http://localhost:8808/api/v1/system/camera/get?id=1", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-12-31T16:55:44.916+08:00 {74d104aff940861861c0f448bc2552e4} 404 "OPTIONS http localhost:8808 /api/v1/system/camera/group/list HTTP/1.1" 0.000, ::1, "http://192.168.2.130:8888/", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-12-31T16:55:44.926+08:00 {d8880caff940861862c0f448c5cbfa0a} 200 "GET http localhost:8808 /api/v1/system/camera/list?pageNum=1&pageSize=10&cameraName=&groupId=&deviceType= HTTP/1.1" 0.008, ::1, "http://192.168.2.130:8888/", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-12-31T16:55:54.497+08:00 {f463dde9fb40861864c0f448cc9f8386} 200 "GET http localhost:8808 /api/v1/system/camera/get?id=1 HTTP/1.1" 0.004, ::1, "http://192.168.2.130:8888/", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36"
+2025-12-31T17:06:28.662+08:00 pid[24612]: all servers shutdown
