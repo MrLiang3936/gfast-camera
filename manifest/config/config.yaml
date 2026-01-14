@@ -103,4 +103,5 @@ zlmediaKit:
 # 上传
 upload:
   # url: /tmp/
-  url: E:\tmp\
+  windowsUrl: E:\tmp\
+  linuxUrl: E:\tmp\
