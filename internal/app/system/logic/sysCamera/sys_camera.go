@@ -235,7 +235,7 @@ func createStreamProxy(ctx context.Context, cameraId int, streamUrl string) erro
 
 	// 构建创建流代理的 URL
 	createUrl := fmt.Sprintf(
-		"http://%s:%d/index/api/addStreamProxy?secret=%s&vhost=%s&app=%s&stream=%d&url=%s&retry_count=-1&rtp_type=0&timeout_sec=10.0&enable_hls=false&enable_hls_fmp4=false&enable_mp4=false&enable_rtsp=false&enable_rtmp=false&enable_ts=false&enable_fmp4=true&hls_demand=false&rtsp_demand=false&rtmp_demand=false&ts_demand=false&fmp4_demand=true&enable_audio=false&add_mute_audio=true&mp4_save_path=&mp4_max_second=3600&mp4_as_player=false&hls_save_path=&modify_stamp=0&auto_close=false",
+		"http://%s:%d/index/api/addStreamProxy?secret=%s&vhost=%s&app=%s&stream=%d&url=%s&retry_count=-1&rtp_type=0&timeout_sec=10.0&enable_hls=false&enable_hls_fmp4=false&enable_mp4=false&enable_rtsp=true&enable_rtmp=false&enable_ts=false&enable_fmp4=true&hls_demand=false&rtsp_demand=false&rtmp_demand=false&ts_demand=false&fmp4_demand=true&enable_audio=false&add_mute_audio=true&mp4_save_path=&mp4_max_second=3600&mp4_as_player=false&hls_save_path=&modify_stamp=0&auto_close=false",
 		zlHost, zlPort, zlSecret, zlVhost, zlProxyApp, cameraId, url.QueryEscape(streamUrl),
 	)
 
@@ -341,6 +341,7 @@ func (s *sSysCamera) Get(ctx context.Context, id int) (res *model.CameraGetMedia
 			config := g.Cfg()
 			zlHost := config.MustGet(ctx, "zlmediaKit.host").String()
 			zlPort := config.MustGet(ctx, "zlmediaKit.port").Int()
+			zlProxyApp := config.MustGet(ctx, "zlmediaKit.proxyApp").String()
 
 			// 如果配置不存在，使用默认值
 			if zlHost == "" {
@@ -349,7 +350,8 @@ func (s *sSysCamera) Get(ctx context.Context, id int) (res *model.CameraGetMedia
 			if zlPort == 0 {
 				zlPort = 8080
 			}
-			res.WsFmp4Url = fmt.Sprintf("ws://%s:%d/proxy/%d.live.mp4", zlHost, zlPort, res.CameraId)
+			res.WsFmp4Url = fmt.Sprintf("ws://%s:%d/%s/%d.live.mp4", zlHost, zlPort, zlProxyApp, res.CameraId)
+			res.RtspUrl = fmt.Sprintf("rtsp://%s:8554/%s/%d", zlHost, zlProxyApp, res.CameraId)
 		}
 	})
 	return

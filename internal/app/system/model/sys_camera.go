@@ -57,6 +57,7 @@ type CameraAddMediaRes struct {
 type CameraGetMediaRes struct {
 	*entity.SysCamera
 	WsFmp4Url string `json:"wsFmp4Url"`
+	RtspUrl   string `json:"rtspUrl"`
 }
 
 type ZLMediaKitResponse struct {
