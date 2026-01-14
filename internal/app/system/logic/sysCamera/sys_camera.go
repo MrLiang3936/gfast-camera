@@ -65,6 +65,17 @@ func (s *sSysCamera) List(ctx context.Context, req *system.CameraSearchReq) (res
 // 添加 http://192.168.2.125:8080/index/api/addStreamProxy?secret=qBiDssKtJIk5ngc0M6sa8ZvsCwQAiWcH&vhost=__defaultVhost__&app=proxy&stream=0&url=rtsp://admin:hbAC2023@192.168.2.2:554/h264/ch1/main/av_stream&retry_count=-1&rtp_type=0&timeout_sec=10.0&enable_hls=false&enable_hls_fmp4=false&enable_mp4=false&enable_rtsp=false&enable_rtmp=false&enable_ts=false&enable_fmp4=true&hls_demand=false&rtsp_demand=false&rtmp_demand=false&ts_demand=false&fmp4_demand=true&enable_audio=false&add_mute_audio=true&mp4_save_path=&mp4_max_second=3600&mp4_as_player=false&hls_save_path=&modify_stamp=0&auto_close=false
 func (s *sSysCamera) Add(ctx context.Context, req *system.CameraAddReq) (err error) {
 	err = g.Try(ctx, func(ctx context.Context) {
+		// 检查 StreamUrl 是否已经存在
+		count, err := dao.SysCamera.Ctx(ctx).Where(do.SysCamera{StreamUrl: req.StreamUrl}).Count()
+		if err != nil {
+			liberr.ErrIsNil(ctx, err, "检查StreamUrl是否重复时出错")
+			return
+		}
+		if count > 0 {
+			liberr.ErrIsNil(ctx, fmt.Errorf("StreamUrl已存在"), "StreamUrl已存在")
+			return
+		}
+
 		_, err = dao.SysCamera.Ctx(ctx).Insert(do.SysCamera{
 			GroupId:    req.GroupId,
 			CameraName: req.CameraName,
@@ -82,6 +93,20 @@ func (s *sSysCamera) Add(ctx context.Context, req *system.CameraAddReq) (err err
 
 func (s *sSysCamera) Edit(ctx context.Context, req *system.CameraEditReq) (err error) {
 	err = g.Try(ctx, func(ctx context.Context) {
+		// 检查 StreamUrl 是否已经存在（排除当前摄像头）
+		count, err := dao.SysCamera.Ctx(ctx).
+			Where(do.SysCamera{StreamUrl: req.StreamUrl}).
+			WhereNot("camera_id", req.CameraId).
+			Count()
+		if err != nil {
+			liberr.ErrIsNil(ctx, err, "检查StreamUrl是否重复时出错")
+			return
+		}
+		if count > 0 {
+			liberr.ErrIsNil(ctx, fmt.Errorf("StreamUrl已存在"), "StreamUrl已存在")
+			return
+		}
+
 		_, err = dao.SysCamera.Ctx(ctx).WherePri(req.CameraId).Update(do.SysCamera{
 			CameraId:   req.CameraId,
 			GroupId:    req.GroupId,
