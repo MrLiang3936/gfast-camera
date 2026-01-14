@@ -94,4 +94,13 @@ gfcli:
 zlmediaKit:
   host: "192.168.2.125"  # ZLMediaKit 服务主机地址
   port: 8080             # ZLMediaKit 服务端口
+  vhost: "__defaultVhost__"
+  secret: "qBiDssKtJIk5ngc0M6sa8ZvsCwQAiWcH"
+  proxyApp: "proxy"     # 代理非推理的视频  预览用
+  rknnApp: "rknn"       # 代理推理的视频    展示推理用
   apiBase: "http://192.168.2.125/index/api"
+
+# 上传
+upload:
+  # url: /tmp/
+  url: E:\tmp\
