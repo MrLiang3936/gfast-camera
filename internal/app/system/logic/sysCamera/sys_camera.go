@@ -287,11 +287,13 @@ func closeStreamProxy(ctx context.Context, cameraId int) error {
 		return fmt.Errorf("关闭流代理失败，错误代码: %d, 错误信息: %s", closeResult.Code, closeResult.Msg)
 	}
 
-	// 验证是否确实关闭了流
-	if countClosed, ok := closeResult.Data.(map[string]interface{})["count_closed"]; ok {
-		if closedNum, ok := countClosed.(float64); ok && closedNum == 0 {
-			g.Log().Debugf(ctx, "摄像头ID %d 的流代理可能不存在或已关闭", cameraId)
-		}
+	// 检查是否成功关闭了流
+	if closeResult.CountClosed == 0 {
+		g.Log().Debugf(ctx, "摄像头ID %d 的流代理可能不存在或已关闭 (count_closed: %d, count_hit: %d)",
+			cameraId, closeResult.CountClosed, closeResult.CountHit)
+	} else {
+		g.Log().Debugf(ctx, "成功关闭摄像头ID %d 的流代理 (count_closed: %d, count_hit: %d)",
+			cameraId, closeResult.CountClosed, closeResult.CountHit)
 	}
 
 	g.Log().Debugf(ctx, "关闭创建流代理，返回键值: %v", closeResult.Data)
@@ -304,7 +306,7 @@ func (s *sSysCamera) Delete(ctx context.Context, ids []int) (err error) {
 		for _, id := range ids {
 			if closeErr := closeStreamProxy(ctx, id); closeErr != nil {
 				g.Log().Warningf(ctx, "关闭流媒体代理失败，摄像头ID: %d, 错误: %v", id, closeErr)
-				liberr.ErrIsNil(ctx, err, "关闭流媒体代理失败")
+				liberr.ErrIsNil(ctx, closeErr, "关闭流媒体代理失败")
 				return
 			}
 		}

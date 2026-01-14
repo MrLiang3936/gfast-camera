@@ -60,9 +60,11 @@ type CameraGetMediaRes struct {
 }
 
 type ZLMediaKitResponse struct {
-	Code int         `json:"code"`
-	Data interface{} `json:"data,omitempty"`
-	Msg  string      `json:"msg,omitempty"` // 可能存在错误信息
+	Code        int         `json:"code"`
+	Data        interface{} `json:"data,omitempty"`
+	Msg         string      `json:"msg,omitempty"`          // 可能存在错误信息
+	CountClosed int         `json:"count_closed,omitempty"` // 关闭流时候返回的关闭数量
+	CountHit    int         `json:"count_hit,omitempty"`    // 关闭流时候返回的关闭数量
 }
 
 type AddStreamProxyResponse struct {
