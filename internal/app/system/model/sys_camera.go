@@ -58,3 +58,16 @@ type CameraGetMediaRes struct {
 	*entity.SysCamera
 	WsFmp4Url string `json:"wsFmp4Url"`
 }
+
+type ZLMediaKitResponse struct {
+	Code int         `json:"code"`
+	Data interface{} `json:"data,omitempty"`
+	Msg  string      `json:"msg,omitempty"` // 可能存在错误信息
+}
+
+type AddStreamProxyResponse struct {
+	Code int `json:"code"`
+	Data struct {
+		Key string `json:"key"`
+	} `json:"data"`
+}
