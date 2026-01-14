@@ -9,6 +9,7 @@ package controller
 
 import (
 	"context"
+	"runtime"
 
 	"github.com/gogf/gf/v2/errors/gcode"
 	"github.com/gogf/gf/v2/errors/gerror"
@@ -26,8 +27,8 @@ func (a *fileController) Get(ctx context.Context, req *common.FileUploadReq) (re
 	if req.File == nil {
 		return nil, gerror.NewCode(gcode.CodeMissingParameter, "请选择需要上传的文件")
 	}
-	//req.File.Filename = "MyCustomFileName.txt"
-	upUrl := g.Cfg().MustGet(ctx, "upload.url").String()
+
+	upUrl := getUploadUrl(ctx)
 	names, err := req.File.Save(upUrl)
 
 	if err != nil {
@@ -39,4 +40,26 @@ func (a *fileController) Get(ctx context.Context, req *common.FileUploadReq) (re
 		Url:  upUrl,
 	}
 	return
+}
+
+// 根据操作系统获取上传路径
+func getUploadUrl(ctx context.Context) string {
+	os := runtime.GOOS
+	config := g.Cfg()
+
+	switch os {
+	case "windows":
+		winUrl := config.MustGet(ctx, "upload.windowsUrl").String()
+		if winUrl != "" {
+			return winUrl
+		}
+	case "linux":
+		linuxUrl := config.MustGet(ctx, "upload.linuxUrl").String()
+		if linuxUrl != "" {
+			return linuxUrl
+		}
+	}
+
+	// 默认返回通用路径
+	return config.MustGet(ctx, "upload.linuxUrl").String()
 }
