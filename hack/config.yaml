@@ -1,9 +1,11 @@
 # CLI.
+# https://goframe.org/docs/cli
 gfcli:
   gen:
     dao:
-      - link:            "mysql:root:@tcp(127.0.0.1:3306)/gfast-v32"
-        tables:          "sys_camera"
+      - link: "mysql:root:HBacWLKJ@tcp(192.168.2.111:3306)/gfast-v32?charset=utf8mb4&parseTime=true&loc=Local"
+
+        tables:          "sys_algorithm"
         removePrefix:    "gf_"
         descriptionTag:  true
         noModelComment:  true
