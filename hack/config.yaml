@@ -5,7 +5,7 @@ gfcli:
     dao:
       - link: "mysql:root:HBacWLKJ@tcp(192.168.2.111:3306)/gfast-v32?charset=utf8mb4&parseTime=true&loc=Local"
 
-        tables:          "sys_algorithm"
+        tables:          "sys_analysis_task,sys_analysis_task_camera_algorithm"
         removePrefix:    "gf_"
         descriptionTag:  true
         noModelComment:  true

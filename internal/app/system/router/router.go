@@ -48,6 +48,8 @@ func (router *Router) BindController(ctx context.Context, group *ghttp.RouterGro
 			controller.UserOnline,
 			controller.Camera,
 			controller.Algorithm,
+			controller.AnalysisTask,
+			controller.AnalysisTaskCameraAlgorithm,
 			controller.Cache, // 缓存处理
 		)
 		//自动绑定定义的控制器
