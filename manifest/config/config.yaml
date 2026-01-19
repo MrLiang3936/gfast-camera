@@ -84,7 +84,7 @@ gfcli:
   gen:
     dao:
       - link:            "mysql:root:HBacWLKJ@tcp(192.168.2.111:3306)/gfast-v32"
-        tables:          "tools_gen_table,tools_gen_table_column"
+        tables:          "sys_algorithm"
         removePrefix:    "gf_"
         descriptionTag:  true
         noModelComment:  true
@@ -105,3 +105,6 @@ upload:
   # url: /tmp/
   windowsUrl: E:\tmp\
   linuxUrl: E:\tmp\
+
+model:
+  urlPre: "/userdata/blueberry/code/go-rknnlite/example/yolov11smoking/"

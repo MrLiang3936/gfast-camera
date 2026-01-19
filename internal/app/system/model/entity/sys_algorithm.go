@@ -18,7 +18,7 @@ type SysAlgorithm struct {
 	CnName           string      `json:"cnName"           orm:"cn_name"           description:"算法中文名称"`
 	EnName           string      `json:"enName"           orm:"en_name"           description:"算法英文名称（label）"`
 	CoverImageUrl    string      `json:"coverImageUrl"    orm:"cover_image_url"   description:"算法封面图URL"`
-	State            string      `json:"state"            orm:"state"             description:"算法部署状态（Installed/Uninstalled等）"`
+	State            string      `json:"state"            orm:"state"             description:"算法部署状态（Installed/Uninstalled 等）"`
 	CreateBy         uint        `json:"createBy"         orm:"create_by"         description:"创建者"`
 	UpdateBy         uint        `json:"updateBy"         orm:"update_by"         description:"更新者"`
 	Remark           string      `json:"remark"           orm:"remark"            description:"备注"`

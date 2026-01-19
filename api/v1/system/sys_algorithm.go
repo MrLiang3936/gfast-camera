@@ -36,6 +36,7 @@ type AlgorithmBaseReq struct {
 	State            string `p:"state" v:"required#算法部署状态不能为空"`             // 算法部署状态
 	Remark           string `p:"remark"`                                    // 备注
 	ModelFile        string `p:"modelFile"`                                 // 加密生成的模型路径
+	Secret           string `p:"secret"`
 }
 
 // AlgorithmAddReq 算法添加请求
@@ -46,7 +47,7 @@ type AlgorithmAddReq struct {
 
 // AlgorithmAddRes 算法添加响应
 type AlgorithmAddRes struct {
-	Id uint `json:"id"` // 新增算法ID
+	Id int `json:"id"` // 新增算法ID
 }
 
 // AlgorithmGetReq 算法详情获取请求
@@ -64,7 +65,7 @@ type AlgorithmGetRes struct {
 // AlgorithmEditReq 算法修改请求
 type AlgorithmEditReq struct {
 	g.Meta      `path:"/algorithm/edit" tags:"算法管理" method:"put" summary:"修改算法"`
-	AlgorithmId uint `p:"algorithmId" v:"required|min:1#算法ID不能为空|算法ID必须大于0"` // 算法主键ID
+	AlgorithmId int `p:"algorithmId" v:"required|min:1#算法ID不能为空|算法ID必须大于0"` // 算法主键ID
 	*AlgorithmBaseReq
 }
 
@@ -75,7 +76,7 @@ type AlgorithmEditRes struct {
 // AlgorithmDeleteReq 算法删除请求
 type AlgorithmDeleteReq struct {
 	g.Meta `path:"/algorithm/delete" tags:"算法管理" method:"delete" summary:"删除算法"`
-	Ids    []uint `p:"ids" v:"required#请选择需要删除的算法"` // 算法ID数组
+	Ids    []int `p:"ids" v:"required#请选择需要删除的算法"` // 算法ID数组
 }
 
 // AlgorithmDeleteRes 算法删除响应
