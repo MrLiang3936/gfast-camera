@@ -48,3 +48,9 @@ func (c *analysisTaskCameraAlgorithmController) Delete(ctx context.Context, req 
 	err = service.SysAnalysisTaskCameraAlgorithm().Delete(ctx, req.Ids)
 	return
 }
+
+// Delete 批量删除分析任务摄像头算法关联
+func (c *analysisTaskCameraAlgorithmController) DeleteBatch(ctx context.Context, req *system.AnalysisTaskCameraAlgorithmDeleteBatchReq) (res *system.AnalysisTaskCameraAlgorithmDeleteBatchRes, err error) {
+	err = service.SysAnalysisTaskCameraAlgorithm().DeleteBatch(ctx, req)
+	return
+}

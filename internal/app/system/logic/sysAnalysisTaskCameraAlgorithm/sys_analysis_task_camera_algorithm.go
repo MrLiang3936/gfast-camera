@@ -177,3 +177,33 @@ func (s *sSysAnalysisTaskCameraAlgorithm) Delete(ctx context.Context, ids []uint
 	})
 	return
 }
+
+func (s *sSysAnalysisTaskCameraAlgorithm) DeleteBatch(ctx context.Context, req *system.AnalysisTaskCameraAlgorithmDeleteBatchReq) (err error) {
+	err = g.Try(ctx, func(ctx context.Context) {
+		// 根据Data数组里面对象的CameraId，AlgorithmId，TaskId删除
+		if len(req.Data) == 0 {
+			return // 如果没有数据要删除，则直接返回
+		}
+
+		// 构建 OR 条件进行批量删除
+		queryBuilder := dao.SysAnalysisTaskCameraAlgorithm.Ctx(ctx)
+
+		for i, item := range req.Data {
+			if i == 0 {
+				queryBuilder = queryBuilder.Where(
+					"(task_id = ? AND camera_id = ? AND algorithm_id = ?)",
+					item.TaskId, item.CameraId, item.AlgorithmId,
+				)
+			} else {
+				queryBuilder = queryBuilder.WhereOr(
+					"(task_id = ? AND camera_id = ? AND algorithm_id = ?)",
+					item.TaskId, item.CameraId, item.AlgorithmId,
+				)
+			}
+		}
+
+		_, err = queryBuilder.Delete()
+		liberr.ErrIsNil(ctx, err, "批量删除分析任务摄像头算法关联失败")
+	})
+	return
+}

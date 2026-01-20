@@ -41,11 +41,19 @@ type AnalysisTaskCameraAlgorithmAddRes struct {
 }
 
 type AnalysisTaskCameraAlgorithmAddBatchReq struct {
-	g.Meta `path:"/analysisTaskCameraAlgorithm/addPatch" tags:"摄像头-算法关联" method:"post" summary:"批量关联"`
+	g.Meta `path:"/analysisTaskCameraAlgorithm/addPatch" tags:"摄像头-算法关联" method:"post" summary:"批量添加关联"`
 	Data   []*entity.SysAnalysisTaskCameraAlgorithm `p:"data" v:"required#数据不能为空"`
 }
 
 type AnalysisTaskCameraAlgorithmAddBatchRes struct {
+}
+
+type AnalysisTaskCameraAlgorithmDeleteBatchReq struct {
+	g.Meta `path:"/analysisTaskCameraAlgorithm/deletePatch" tags:"摄像头-算法关联" method:"delete" summary:"批量解除关联"`
+	Data   []*entity.SysAnalysisTaskCameraAlgorithm `p:"data" v:"required#数据不能为空"`
+}
+
+type AnalysisTaskCameraAlgorithmDeleteBatchRes struct {
 }
 
 type AnalysisTaskCameraAlgorithmEditReq struct {
