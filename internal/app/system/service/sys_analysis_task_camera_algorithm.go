@@ -16,6 +16,7 @@ type ISysAnalysisTaskCameraAlgorithm interface {
 	Add(ctx context.Context, req *system.AnalysisTaskCameraAlgorithmAddReq) (err error)
 	Edit(ctx context.Context, req *system.AnalysisTaskCameraAlgorithmEditReq) (err error)
 	Delete(ctx context.Context, ids []uint) (err error)
+	AddBatch(ctx context.Context, req *system.AnalysisTaskCameraAlgorithmAddBatchReq) (err error)
 }
 
 var localSysAnalysisTaskCameraAlgorithm ISysAnalysisTaskCameraAlgorithm

@@ -11,6 +11,7 @@ import (
 // SysAnalysisTaskCameraAlgorithm is the golang structure for table sys_analysis_task_camera_algorithm.
 type SysAnalysisTaskCameraAlgorithm struct {
 	Id          uint        `json:"id"          orm:"id"           description:"自增ID"`
+	TaskId      uint        `json:"taskId"      orm:"task_id"      description:"任务ID"`
 	CameraId    uint        `json:"cameraId"    orm:"camera_id"    description:"摄像头ID"`
 	AlgorithmId uint        `json:"algorithmId" orm:"algorithm_id" description:"算法ID"`
 	Remark      string      `json:"remark"      orm:"remark"       description:"备注"`

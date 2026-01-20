@@ -32,8 +32,8 @@ type AnalysisTaskAddReq struct {
 	g.Meta       `path:"/analysisTask/add" tags:"分析任务管理" method:"post" summary:"添加分析任务"`
 	Name         string `p:"name" v:"required#任务名称不能为空"`
 	State        string `p:"state" v:"required#任务运行状态不能为空"`
-	WorkTimeType string `p:"workTimeType" v:"required#任务执行时间类型不能为空"`
-	WorkTime     string `p:"workTime"` // 任务执行时间配置
+	WorkTimeType string `p:"workTimeType" `
+	WorkTime     string `p:"workTime" default:"{}"` // 任务执行时间配置
 	Type         string `p:"type" v:"required#任务类型不能为空"`
 	Remark       string `p:"remark"`
 }

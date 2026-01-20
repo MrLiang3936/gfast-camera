@@ -13,6 +13,7 @@ import (
 type SysAnalysisTaskCameraAlgorithm struct {
 	g.Meta      `orm:"table:sys_analysis_task_camera_algorithm, do:true"`
 	Id          any         // 自增ID
+	TaskId      any         // 任务ID
 	CameraId    any         // 摄像头ID
 	AlgorithmId any         // 算法ID
 	Remark      any         // 备注

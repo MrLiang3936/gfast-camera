@@ -22,6 +22,7 @@ type SysAnalysisTaskCameraAlgorithmDao struct {
 // SysAnalysisTaskCameraAlgorithmColumns defines and stores column names for the table sys_analysis_task_camera_algorithm.
 type SysAnalysisTaskCameraAlgorithmColumns struct {
 	Id          string // 自增ID
+	TaskId      string // 摄像头ID
 	CameraId    string // 摄像头ID
 	AlgorithmId string // 算法ID
 	Remark      string // 备注
@@ -34,6 +35,7 @@ type SysAnalysisTaskCameraAlgorithmColumns struct {
 // sysAnalysisTaskCameraAlgorithmColumns holds the columns for the table sys_analysis_task_camera_algorithm.
 var sysAnalysisTaskCameraAlgorithmColumns = SysAnalysisTaskCameraAlgorithmColumns{
 	Id:          "id",
+	TaskId:      "task_id",
 	CameraId:    "camera_id",
 	AlgorithmId: "algorithm_id",
 	Remark:      "remark",

@@ -9,7 +9,6 @@ package sysCamera
 
 import (
 	"context"
-	"fmt"
 
 	"github.com/gogf/gf/v2/frame/g"
 	"github.com/tiger1103/gfast/v3/api/v1/system"
@@ -72,15 +71,15 @@ func (s *sSysAlgorithm) List(ctx context.Context, req *system.AlgorithmSearchReq
 func (s *sSysAlgorithm) Add(ctx context.Context, req *system.AlgorithmAddReq) (err error) {
 	err = g.Try(ctx, func(ctx context.Context) {
 		// 检查 AlgorithmId 是否已经存在
-		count, err := dao.SysAlgorithm.Ctx(ctx).Where(do.SysAlgorithm{AlgorithmId: req.AlgorithmId}).Count()
-		if err != nil {
-			liberr.ErrIsNil(ctx, err, "检查AlgorithmId是否重复时出错")
-			return
-		}
-		if count > 0 {
-			liberr.ErrIsNil(ctx, fmt.Errorf("AlgorithmId已存在"), "AlgorithmId已存在")
-			return
-		}
+		//count, err := dao.SysAlgorithm.Ctx(ctx).Where(do.SysAlgorithm{AlgorithmId: req.AlgorithmId}).Count()
+		//if err != nil {
+		//	liberr.ErrIsNil(ctx, err, "检查AlgorithmId是否重复时出错")
+		//	return
+		//}
+		//if count > 0 {
+		//	liberr.ErrIsNil(ctx, fmt.Errorf("AlgorithmId已存在"), "AlgorithmId已存在")
+		//	return
+		//}
 
 		_, err = dao.SysAlgorithm.Ctx(ctx).Insert(do.SysAlgorithm{
 			Intro:            req.Intro,

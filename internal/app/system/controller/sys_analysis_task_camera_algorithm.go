@@ -32,6 +32,11 @@ func (c *analysisTaskCameraAlgorithmController) Add(ctx context.Context, req *sy
 	return
 }
 
+func (c *analysisTaskCameraAlgorithmController) AddBatch(ctx context.Context, req *system.AnalysisTaskCameraAlgorithmAddBatchReq) (res *system.AnalysisTaskCameraAlgorithmAddBatchRes, err error) {
+	err = service.SysAnalysisTaskCameraAlgorithm().AddBatch(ctx, req)
+	return
+}
+
 // Edit 修改分析任务摄像头算法关联
 func (c *analysisTaskCameraAlgorithmController) Edit(ctx context.Context, req *system.AnalysisTaskCameraAlgorithmEditReq) (res *system.AnalysisTaskCameraAlgorithmEditRes, err error) {
 	err = service.SysAnalysisTaskCameraAlgorithm().Edit(ctx, req)
