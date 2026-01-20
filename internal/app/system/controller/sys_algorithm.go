@@ -33,8 +33,14 @@ func (c *algorithmController) Add(ctx context.Context, req *system.AlgorithmAddR
 }
 
 // Edit 修改
-func (c *algorithmController) Edit(ctx context.Context, req *system.AlgorithmEditReq) (res *system.CameraEditRes, err error) {
+func (c *algorithmController) Edit(ctx context.Context, req *system.AlgorithmEditReq) (res *system.AlgorithmEditRes, err error) {
 	err = service.SysAlgorithm().Edit(ctx, req)
+	return
+}
+
+// Edit 批量修改
+func (c *algorithmController) EditBatch(ctx context.Context, req *system.AlgorithmEditPatchReq) (res *system.AlgorithmEditPatchRes, err error) {
+	err = service.SysAlgorithm().EditBatch(ctx, req)
 	return
 }
 

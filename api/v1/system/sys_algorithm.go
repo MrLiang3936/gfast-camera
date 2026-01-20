@@ -64,13 +64,24 @@ type AlgorithmGetRes struct {
 
 // AlgorithmEditReq 算法修改请求
 type AlgorithmEditReq struct {
-	g.Meta      `path:"/algorithm/edit" tags:"算法管理" method:"put" summary:"修改算法"`
-	AlgorithmId int `p:"algorithmId" v:"required|min:1#算法ID不能为空|算法ID必须大于0"` // 算法主键ID
+	g.Meta `path:"/algorithm/edit" tags:"算法管理" method:"put" summary:"修改算法"`
+	Id     int `p:"id" v:"required|min:1#算法ID不能为空|算法ID必须大于0"` // 算法主键ID
 	*AlgorithmBaseReq
 }
 
 // AlgorithmEditRes 算法修改响应
 type AlgorithmEditRes struct {
+}
+
+// AlgorithmEditReq 算法批量修改请求
+type AlgorithmEditPatchReq struct {
+	g.Meta `path:"/algorithm/editPatch" tags:"算法管理" method:"put" summary:"批量安装卸/载算法"`
+	Ids    []int  `p:"ids" v:"required#请选择需要删除的算法"`   // 算法ID数组
+	State  string `p:"state" v:"required#算法部署状态不能为空"` // 算法部署状态
+}
+
+// AlgorithmEditRes 算法批量修改响应
+type AlgorithmEditPatchRes struct {
 }
 
 // AlgorithmDeleteReq 算法删除请求

@@ -103,21 +103,32 @@ func (s *sSysAlgorithm) Add(ctx context.Context, req *system.AlgorithmAddReq) (e
 
 func (s *sSysAlgorithm) Edit(ctx context.Context, req *system.AlgorithmEditReq) (err error) {
 	err = g.Try(ctx, func(ctx context.Context) {
-		_, err = dao.SysAlgorithm.Ctx(ctx).WherePri(req.AlgorithmId).Update(do.SysAlgorithm{
-			Intro:            req.Intro,
-			AlgorithmId:      req.AlgorithmId,
-			AlgorithmTaskId:  req.AlgorithmTaskId,
-			AlgorithmVersion: req.AlgorithmVersion,
-			CnName:           req.CnName,
-			EnName:           req.EnName,
-			CoverImageUrl:    req.CoverImageUrl,
-			State:            req.State,
-			Remark:           req.Remark,
-			ModelFile:        req.ModelFile,
-			Secret:           req.Secret,
-			UpdateBy:         service.Context().GetUserId(ctx),
+		_, err = dao.SysAlgorithm.Ctx(ctx).WherePri(req.Id).Update(do.SysAlgorithm{
+			//Intro:            req.Intro,
+			//AlgorithmId:      req.AlgorithmId,
+			//AlgorithmTaskId:  req.AlgorithmTaskId,
+			//AlgorithmVersion: req.AlgorithmVersion,
+			//CnName:           req.CnName,
+			//EnName:           req.EnName,
+			//CoverImageUrl:    req.CoverImageUrl,
+			State: req.State,
+			//Remark:           req.Remark,
+			//ModelFile:        req.ModelFile,
+			//Secret:           req.Secret,
+			UpdateBy: service.Context().GetUserId(ctx),
 		})
 		liberr.ErrIsNil(ctx, err, "修改算法失败")
+	})
+	return
+}
+
+func (s *sSysAlgorithm) EditBatch(ctx context.Context, req *system.AlgorithmEditPatchReq) (err error) {
+	err = g.Try(ctx, func(ctx context.Context) {
+		_, err = dao.SysAlgorithm.Ctx(ctx).Where(dao.SysAlgorithm.Columns().Id+" in(?)", req.Ids).Update(do.SysAlgorithm{
+			State:    req.State,
+			UpdateBy: service.Context().GetUserId(ctx),
+		})
+		liberr.ErrIsNil(ctx, err, "批量修改算法失败")
 	})
 	return
 }

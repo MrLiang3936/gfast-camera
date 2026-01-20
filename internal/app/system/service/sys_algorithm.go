@@ -15,6 +15,7 @@ type ISysAlgorithm interface {
 	List(ctx context.Context, req *system.AlgorithmSearchReq) (res *system.AlgorithmSearchRes, err error)
 	Add(ctx context.Context, req *system.AlgorithmAddReq) (err error)
 	Edit(ctx context.Context, req *system.AlgorithmEditReq) (err error)
+	EditBatch(ctx context.Context, req *system.AlgorithmEditPatchReq) (err error)
 	Delete(ctx context.Context, ids []int) (err error)
 	Get(ctx context.Context, id int) (res *system.AlgorithmGetRes, err error)
 }
