@@ -4,7 +4,6 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/gogf/gf/v2/encoding/gjson"
 	"github.com/gogf/gf/v2/frame/g"
 	"github.com/tiger1103/gfast/v3/api/v1/system"
 	"github.com/tiger1103/gfast/v3/internal/app/system/consts"
@@ -28,22 +27,23 @@ type sSysAnalysisTaskCameraAlgorithm struct {
 
 func (s *sSysAnalysisTaskCameraAlgorithm) AddBatch(ctx context.Context, req *system.AnalysisTaskCameraAlgorithmAddBatchReq) (err error) {
 	err = g.Try(ctx, func(ctx context.Context) {
-		// 根据req.TaskId和Data里面对象的CameraId和AlgorithmId查询有没有重复的,有则去掉
-		existingRecords, err := s.getExistingRecords(ctx, req.Data)
-		liberr.ErrIsNil(ctx, err, "查询现有记录失败")
-		g.Log().Warningf(ctx, "【查询existingRecords现有记录】 %s", gjson.MustEncodeString(existingRecords))
-		// 过滤掉已存在的记录
-		filteredData := s.filterDuplicateRecords(req.Data, existingRecords)
-		g.Log().Warningf(ctx, "【查询filteredData现有记录】 %s", gjson.MustEncodeString(filteredData))
-
-		if len(filteredData) == 0 {
-			return // 没有新记录需要插入
+		if len(req.Data) == 0 {
+			return // 没有数据则直接返回
 		}
 
-		// 批量插入数据
+		// 获取任务ID
+		taskId := req.Data[0].TaskId
+
+		// 先删除该任务下的所有关联关系
+		_, err = dao.SysAnalysisTaskCameraAlgorithm.Ctx(ctx).
+			Where(dao.SysAnalysisTaskCameraAlgorithm.Columns().TaskId, taskId).
+			Delete()
+		liberr.ErrIsNil(ctx, err, "删除任务关联关系失败")
+
+		// 批量插入新的数据
 		var records []do.SysAnalysisTaskCameraAlgorithm
 		userId := service.Context().GetUserId(ctx)
-		for _, item := range filteredData {
+		for _, item := range req.Data {
 			record := do.SysAnalysisTaskCameraAlgorithm{
 				TaskId:      item.TaskId,
 				CameraId:    item.CameraId,
