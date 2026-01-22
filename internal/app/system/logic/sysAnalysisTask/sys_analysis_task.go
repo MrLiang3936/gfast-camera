@@ -9,6 +9,8 @@ package sysAnalysisTask
 
 import (
 	"context"
+	"encoding/json"
+	"fmt"
 
 	"github.com/gogf/gf/v2/frame/g"
 	"github.com/tiger1103/gfast/v3/api/v1/system"
@@ -124,4 +126,103 @@ func (s *sSysAnalysisTask) Get(ctx context.Context, id int) (res *system.Analysi
 		liberr.ErrIsNil(ctx, err, "获取分析任务数据失败")
 	})
 	return
+}
+
+func (s *sSysAnalysisTask) UpdateState(ctx context.Context, id int, state string) (res *system.AnalysisTaskUpdateStateRes, err error) {
+	err = g.Try(ctx, func(ctx context.Context) {
+		res = new(system.AnalysisTaskUpdateStateRes)
+
+		// 验证状态值是否合法
+		if state != "run" && state != "stop" {
+			err = fmt.Errorf("invalid state value: %s, only 'run' or 'stop' allowed", state)
+			return
+		}
+
+		// 更新数据库中的任务状态
+		result, err := dao.SysAnalysisTask.Ctx(ctx).
+			Where(dao.SysAnalysisTask.Columns().Id, id).
+			Update(do.SysAnalysisTask{
+				State:    state,
+				UpdateBy: service.Context().GetUserId(ctx),
+			})
+		if err != nil {
+			liberr.ErrIsNil(ctx, err, "更新分析任务状态失败")
+			return
+		}
+
+		// 检查是否有记录被更新
+		rowsAffected, _ := result.RowsAffected()
+		if rowsAffected == 0 {
+			err = fmt.Errorf("未找到指定的分析任务或无需更新")
+			return
+		}
+	})
+	return
+}
+
+func (s *sSysAnalysisTask) callRknnStart(ctx context.Context, modelFile string, installFlag bool) error {
+	// 获取配置中的rknn安装地址
+	var rknnStartUrl string
+	if installFlag {
+		rknnStartUrl = g.Cfg().MustGet(ctx, "rknn.start").String()
+	} else {
+		rknnStartUrl = g.Cfg().MustGet(ctx, "rknn.stop").String()
+	}
+	if rknnStartUrl == "" {
+		return fmt.Errorf("rknn install url is not configured")
+	}
+
+	// 发送POST请求到rknn.install接口
+	response, err := g.Client().Post(context.Background(), rknnStartUrl,
+		g.Map{
+			//"data": [],
+		})
+	if err != nil {
+		g.Log().Errorf(context.Background(), "Failed to call rknn install API: %v", err)
+		return err
+	}
+	defer response.Close()
+
+	if response.StatusCode != 200 {
+		errMsg := fmt.Sprintf("rknn install API returned status code: %d", response.StatusCode)
+		g.Log().Errorf(context.Background(), errMsg)
+		return fmt.Errorf(errMsg)
+	}
+
+	respStr := response.ReadAllString()
+	if err != nil {
+		errMsg := fmt.Sprintf("failed to read rknn install API response body: %v", err)
+		g.Log().Errorf(ctx, errMsg)
+		return fmt.Errorf(errMsg)
+	}
+	g.Log().Infof(ctx, "Rknn install response: %s", respStr)
+
+	// 定义result变量，解析JSON响应体到map（核心完善点）
+	var result map[string]interface{}
+	if err := json.Unmarshal([]byte(respStr), &result); err != nil {
+		errMsg := fmt.Sprintf("failed to parse rknn install API response JSON: %v, raw response: %s", err, respStr)
+		g.Log().Errorf(ctx, errMsg)
+		return fmt.Errorf(errMsg)
+	}
+
+	// 检查返回的code是否为0（成功）或status是否为"repeat"（也视为成功）
+	code, codeOk := result["code"].(float64)
+	data, dataOk := result["data"].(map[string]interface{})
+
+	// 判断是否成功（code为0）或重复安装（status为"repeat"）
+	isSuccess := codeOk && code == 0
+	isRepeat := dataOk && data["status"] == "repeat"
+
+	if isSuccess || isRepeat {
+		if isRepeat {
+			g.Log().Infof(context.Background(), "Rknn install repeat for model: %s, message: %s", modelFile, data["message"])
+		} else {
+			g.Log().Infof(context.Background(), "Rknn install success for model: %s", modelFile)
+		}
+	} else {
+		g.Log().Errorf(context.Background(), "Rknn install failed for model: %s, response: %+v", modelFile, result)
+		return fmt.Errorf("rknn install failed for model: %s, response: %+v", modelFile, result)
+	}
+
+	return nil
 }

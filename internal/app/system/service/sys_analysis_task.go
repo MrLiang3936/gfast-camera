@@ -17,6 +17,7 @@ type ISysAnalysisTask interface {
 	Edit(ctx context.Context, req *system.AnalysisTaskEditReq) (err error)
 	Delete(ctx context.Context, ids []int) (err error)
 	Get(ctx context.Context, id int) (res *system.AnalysisTaskGetRes, err error)
+	UpdateState(ctx context.Context, id int, state string) (res *system.AnalysisTaskUpdateStateRes, err error)
 }
 
 var localSysAnalysisTask ISysAnalysisTask

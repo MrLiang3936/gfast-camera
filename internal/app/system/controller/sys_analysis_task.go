@@ -48,3 +48,8 @@ func (c *analysisTaskController) Get(ctx context.Context, req *system.AnalysisTa
 	res, err = service.SysAnalysisTask().Get(ctx, req.Id)
 	return
 }
+
+func (c *analysisTaskController) UpdateState(ctx context.Context, req *system.AnalysisTaskUpdateStateReq) (res *system.AnalysisTaskUpdateStateRes, err error) {
+	res, err = service.SysAnalysisTask().UpdateState(ctx, req.Id, req.State)
+	return
+}

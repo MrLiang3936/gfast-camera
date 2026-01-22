@@ -72,3 +72,12 @@ type AnalysisTaskGetRes struct {
 	g.Meta `mime:"application/json"`
 	Data   *entity.SysAnalysisTask `json:"data"`
 }
+
+type AnalysisTaskUpdateStateReq struct {
+	g.Meta `path:"/analysisTask/enable" tags:"分析任务管理" method:"get" summary:"启用分析任务"`
+	Id     int    `p:"id" v:"required|min:1#id必须"`
+	State  string `json:"state" v:"required|in:run,stop#state必须且只能是run或stop" dc:"任务运行状态(run/stop)等"`
+}
+
+type AnalysisTaskUpdateStateRes struct {
+}
