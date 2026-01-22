@@ -136,7 +136,7 @@ func (s *sSysAnalysisTaskCameraAlgorithm) List(ctx context.Context, req *system.
 		res.Page = page
 		res.Size = size
 
-		err = m.Page(page, size).Order("id desc").Scan(&res.List)
+		err = m.Order("id desc").Scan(&res.List)
 		liberr.ErrIsNil(ctx, err, "获取分析任务摄像头算法关联失败")
 	})
 	return

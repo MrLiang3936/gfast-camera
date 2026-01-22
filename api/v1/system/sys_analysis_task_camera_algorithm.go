@@ -14,11 +14,11 @@ import (
 
 type AnalysisTaskCameraAlgorithmSearchReq struct {
 	g.Meta      `path:"/analysisTaskCameraAlgorithm/list" tags:"摄像头-算法关联" method:"get" summary:"分析任务摄像头算法关联列表"`
-	TaskId      uint `p:"taskId"`      // 任务ID
-	CameraId    uint `p:"cameraId"`    // 摄像头ID
-	AlgorithmId uint `p:"algorithmId"` // 算法ID
-	Page        int  `p:"page"`        // 页码
-	Size        int  `p:"size"`        // 每页大小
+	TaskId      uint `p:"taskId" v:"required#任务ID不能为空"` // 任务ID
+	CameraId    uint `p:"cameraId"`                     // 摄像头ID
+	AlgorithmId uint `p:"algorithmId"`                  // 算法ID
+	Page        int  `p:"page"`                         // 页码
+	Size        int  `p:"size"`                         // 每页大小
 }
 
 type AnalysisTaskCameraAlgorithmSearchRes struct {
