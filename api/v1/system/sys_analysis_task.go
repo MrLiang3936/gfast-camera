@@ -10,6 +10,7 @@ package system
 import (
 	"github.com/gogf/gf/v2/frame/g"
 	commonApi "github.com/tiger1103/gfast/v3/api/v1/common"
+	"github.com/tiger1103/gfast/v3/internal/app/system/model"
 	"github.com/tiger1103/gfast/v3/internal/app/system/model/entity"
 )
 
@@ -25,13 +26,37 @@ type AnalysisTaskSearchReq struct {
 type AnalysisTaskSearchRes struct {
 	g.Meta `mime:"application/json"`
 	commonApi.ListRes
-	TaskList []*entity.SysAnalysisTask `json:"taskList"`
+	TaskList []*entity.SysAnalysisTask `json:"list"`
+}
+
+type AnalysisTaskSearchByCameraReq struct {
+	g.Meta `path:"/analysisTask/listByCamera" tags:"分析任务管理" method:"get" summary:"分析任务列表(摄像头)"`
+	Id     uint `p:"id" v:"required|min:1#id必须"`
+	commonApi.PageReq
+}
+
+type AnalysisTaskSearchByCameraRes struct {
+	g.Meta `mime:"application/json"`
+	commonApi.ListRes
+	CameraList []*model.CameraByAlgorithm `json:"cameraList"`
+}
+
+type AnalysisTaskSearchByAlgorithmReq struct {
+	g.Meta `path:"/analysisTask/listByAlgorithm" tags:"分析任务管理" method:"get" summary:"分析任务列表(算法)"`
+	Id     uint `p:"id" v:"required|min:1#id必须"`
+	commonApi.PageReq
+}
+
+type AnalysisTaskSearchByAlgorithmRes struct {
+	g.Meta `mime:"application/json"`
+	commonApi.ListRes
+	AlgorithmList []*model.AlgorithmByCamera `json:"algorithmList"`
 }
 
 type AnalysisTaskAddReq struct {
 	g.Meta       `path:"/analysisTask/add" tags:"分析任务管理" method:"post" summary:"添加分析任务"`
 	Name         string `p:"name" v:"required#任务名称不能为空"`
-	State        string `p:"state" v:"required#任务运行状态不能为空"`
+	State        string `p:"state"`
 	WorkTimeType string `p:"workTimeType" `
 	WorkTime     string `p:"workTime" default:"{}"` // 任务执行时间配置
 	Type         string `p:"type" v:"required#任务类型不能为空"`
@@ -45,9 +70,9 @@ type AnalysisTaskEditReq struct {
 	g.Meta       `path:"/analysisTask/edit" tags:"分析任务管理" method:"put" summary:"修改分析任务"`
 	Id           uint   `p:"id" v:"required|min:1#id必须"`
 	Name         string `p:"name" v:"required#任务名称不能为空"`
-	State        string `p:"state" v:"required#任务运行状态不能为空"`
-	WorkTimeType string `p:"workTimeType" v:"required#任务执行时间类型不能为空"`
-	WorkTime     string `p:"workTime"` // 任务执行时间配置
+	State        string `p:"state"`
+	WorkTimeType string `p:"workTimeType"`
+	WorkTime     string `p:"workTime"`
 	Type         string `p:"type" v:"required#任务类型不能为空"`
 	Remark       string `p:"remark"`
 }

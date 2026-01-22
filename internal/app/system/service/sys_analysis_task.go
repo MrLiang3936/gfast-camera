@@ -13,6 +13,8 @@ import (
 
 type ISysAnalysisTask interface {
 	List(ctx context.Context, req *system.AnalysisTaskSearchReq) (res *system.AnalysisTaskSearchRes, err error)
+	ListByCamera(ctx context.Context, req *system.AnalysisTaskSearchByCameraReq) (res *system.AnalysisTaskSearchByCameraRes, err error)
+	ListByAlgorithm(ctx context.Context, req *system.AnalysisTaskSearchByAlgorithmReq) (res *system.AnalysisTaskSearchByAlgorithmRes, err error)
 	Add(ctx context.Context, req *system.AnalysisTaskAddReq) (err error)
 	Edit(ctx context.Context, req *system.AnalysisTaskEditReq) (err error)
 	Delete(ctx context.Context, ids []int) (err error)

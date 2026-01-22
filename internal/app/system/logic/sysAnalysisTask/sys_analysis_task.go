@@ -32,6 +32,17 @@ func New() *sSysAnalysisTask {
 type sSysAnalysisTask struct {
 }
 
+// ListByCamera 根据摄像头ID查询分析任务列表（含关联算法）
+func (s *sSysAnalysisTask) ListByCamera(ctx context.Context, req *system.AnalysisTaskSearchByCameraReq) (res *system.AnalysisTaskSearchByCameraRes, err error) {
+
+	return res, nil
+}
+
+func (s *sSysAnalysisTask) ListByAlgorithm(ctx context.Context, req *system.AnalysisTaskSearchByAlgorithmReq) (res *system.AnalysisTaskSearchByAlgorithmRes, err error) {
+
+	return res, nil
+}
+
 // List 分析任务列表
 func (s *sSysAnalysisTask) List(ctx context.Context, req *system.AnalysisTaskSearchReq) (res *system.AnalysisTaskSearchRes, err error) {
 	res = new(system.AnalysisTaskSearchRes)
@@ -122,7 +133,7 @@ func (s *sSysAnalysisTask) Get(ctx context.Context, id int) (res *system.Analysi
 		res = new(system.AnalysisTaskGetRes)
 		err = dao.SysAnalysisTask.Ctx(ctx).
 			Where(dao.SysAnalysisTask.Columns().Id, id).
-			Scan(res)
+			Scan(&res.Data)
 		liberr.ErrIsNil(ctx, err, "获取分析任务数据失败")
 	})
 	return

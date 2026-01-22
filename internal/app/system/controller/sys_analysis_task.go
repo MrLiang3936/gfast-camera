@@ -26,6 +26,16 @@ func (c *analysisTaskController) List(ctx context.Context, req *system.AnalysisT
 	return
 }
 
+func (c *analysisTaskController) ListByCamera(ctx context.Context, req *system.AnalysisTaskSearchByCameraReq) (res *system.AnalysisTaskSearchByCameraRes, err error) {
+	res, err = service.SysAnalysisTask().ListByCamera(ctx, req)
+	return
+}
+
+func (c *analysisTaskController) ListByAlgorithm(ctx context.Context, req *system.AnalysisTaskSearchByAlgorithmReq) (res *system.AnalysisTaskSearchByAlgorithmRes, err error) {
+	res, err = service.SysAnalysisTask().ListByAlgorithm(ctx, req)
+	return
+}
+
 // Add 添加分析任务
 func (c *analysisTaskController) Add(ctx context.Context, req *system.AnalysisTaskAddReq) (res *system.AnalysisTaskAddRes, err error) {
 	err = service.SysAnalysisTask().Add(ctx, req)
