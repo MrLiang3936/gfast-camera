@@ -84,7 +84,7 @@ gfcli:
   gen:
     dao:
       - link:            "mysql:root:HBacWLKJ@tcp(192.168.2.111:3306)/gfast-v32"
-        tables:          "sys_algorithm"
+        tables:          "sys_alert_config"
         removePrefix:    "gf_"
         descriptionTag:  true
         noModelComment:  true

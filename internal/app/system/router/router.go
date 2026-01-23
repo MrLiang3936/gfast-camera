@@ -47,6 +47,7 @@ func (router *Router) BindController(ctx context.Context, group *ghttp.RouterGro
 			controller.Personal,
 			controller.UserOnline,
 			controller.Camera,
+			controller.AlertConfig,
 			controller.Algorithm,
 			controller.AnalysisTask,
 			controller.AnalysisTaskCameraAlgorithm,
