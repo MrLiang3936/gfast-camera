@@ -6,7 +6,6 @@ import (
 
 	"github.com/gogf/gf/v2/frame/g"
 	"github.com/tiger1103/gfast/v3/api/v1/system"
-	"github.com/tiger1103/gfast/v3/internal/app/system/consts"
 	"github.com/tiger1103/gfast/v3/internal/app/system/dao"
 	"github.com/tiger1103/gfast/v3/internal/app/system/model/do"
 	"github.com/tiger1103/gfast/v3/internal/app/system/model/entity"
@@ -112,32 +111,103 @@ func (s *sSysAnalysisTaskCameraAlgorithm) filterDuplicateRecords(
 func (s *sSysAnalysisTaskCameraAlgorithm) List(ctx context.Context, req *system.AnalysisTaskCameraAlgorithmSearchReq) (res *system.AnalysisTaskCameraAlgorithmSearchRes, err error) {
 	res = new(system.AnalysisTaskCameraAlgorithmSearchRes)
 	err = g.Try(ctx, func(ctx context.Context) {
-		m := dao.SysAnalysisTaskCameraAlgorithm.Ctx(ctx) //
+		// 使用 JOIN 查询关联数据
+		m := dao.SysAnalysisTaskCameraAlgorithm.Ctx(ctx).
+			LeftJoin(dao.SysCamera.Table(),
+				fmt.Sprintf("%s.camera_id = %s.camera_id",
+					dao.SysAnalysisTaskCameraAlgorithm.Table(),
+					dao.SysCamera.Table())).
+			LeftJoin(dao.SysAlgorithm.Table(),
+				fmt.Sprintf("%s.algorithm_id = %s.id",
+					dao.SysAnalysisTaskCameraAlgorithm.Table(),
+					dao.SysAlgorithm.Table()))
+
 		if req != nil {
+			if req.TaskId > 0 {
+				m = m.Where(fmt.Sprintf("%s.task_id", dao.SysAnalysisTaskCameraAlgorithm.Table()), req.TaskId)
+			}
 			if req.CameraId > 0 {
-				m = m.Where("camera_id", req.CameraId)
+				m = m.Where(fmt.Sprintf("%s.camera_id", dao.SysAnalysisTaskCameraAlgorithm.Table()), req.CameraId)
 			}
 			if req.AlgorithmId > 0 {
-				m = m.Where("algorithm_id", req.AlgorithmId)
+				m = m.Where(fmt.Sprintf("%s.algorithm_id", dao.SysAnalysisTaskCameraAlgorithm.Table()), req.AlgorithmId)
 			}
 		}
+
+		// 查询总数（如果需要）
 		total, err := m.Count()
 		liberr.ErrIsNil(ctx, err, "获取分析任务摄像头算法关联失败")
 		res.Total = int64(total)
 
-		page := req.Page
-		if page == 0 {
-			page = 1
+		// 取消分页，查询所有数据
+		var list []*struct {
+			*entity.SysAnalysisTaskCameraAlgorithm
+			CameraName     *string `json:"camera_name"`
+			GroupId        *uint   `json:"group_id"`
+			DeviceType     *int    `json:"device_type"`
+			StreamUrl      *string `json:"stream_url"`
+			PreviewImg     *string `json:"preview_img"`
+			CameraRemark   *string `json:"camera_remark"`
+			CnName         *string `json:"cn_name"`
+			EnName         *string `json:"en_name"`
+			Intro          *string `json:"intro"`
+			State          *string `json:"state"`
+			AlgorithmState *string `json:"algorithm_state"`
 		}
-		size := req.Size
-		if size == 0 {
-			size = consts.PageSize
-		}
-		res.Page = page
-		res.Size = size
 
-		err = m.Order("id desc").Scan(&res.List)
+		err = m.Fields(
+			fmt.Sprintf("%s.*, %s.camera_name, %s.group_id, %s.device_type, %s.stream_url, %s.preview_img, %s.remark as camera_remark, %s.cn_name, %s.en_name, %s.intro, %s.state as algorithm_state",
+				dao.SysAnalysisTaskCameraAlgorithm.Table(),
+				dao.SysCamera.Table(),
+				dao.SysCamera.Table(),
+				dao.SysCamera.Table(),
+				dao.SysCamera.Table(),
+				dao.SysCamera.Table(),
+				dao.SysAlgorithm.Table(),
+				dao.SysAlgorithm.Table(),
+				dao.SysAlgorithm.Table(),
+				dao.SysAlgorithm.Table(),
+				dao.SysAlgorithm.Table())).
+			Order(fmt.Sprintf("%s.id desc", dao.SysAnalysisTaskCameraAlgorithm.Table())).
+			Scan(&list)
 		liberr.ErrIsNil(ctx, err, "获取分析任务摄像头算法关联失败")
+
+		// 将结果转换为返回格式
+		for _, item := range list {
+			var cameraInfo *entity.SysCamera
+			if item.CameraName != nil {
+				cameraInfo = &entity.SysCamera{
+					CameraId:   item.SysAnalysisTaskCameraAlgorithm.CameraId,
+					CameraName: *item.CameraName,
+					GroupId:    *item.GroupId,
+					DeviceType: *item.DeviceType,
+					StreamUrl:  *item.StreamUrl,
+					PreviewImg: *item.PreviewImg,
+				}
+			}
+
+			// 创建算法信息对象
+			var algorithmInfo *entity.SysAlgorithm
+			if item.CnName != nil {
+				algorithmInfo = &entity.SysAlgorithm{
+					Id:     item.SysAnalysisTaskCameraAlgorithm.AlgorithmId,
+					CnName: *item.CnName,
+					EnName: *item.EnName,
+					Intro:  *item.Intro,
+					State:  *item.AlgorithmState,
+				}
+			}
+
+			res.List = append(res.List, &system.AnalysisTaskCameraAlgorithmInfo{
+				Id:          item.SysAnalysisTaskCameraAlgorithm.Id,
+				TaskId:      item.SysAnalysisTaskCameraAlgorithm.TaskId,
+				CameraId:    item.SysAnalysisTaskCameraAlgorithm.CameraId,
+				AlgorithmId: item.SysAnalysisTaskCameraAlgorithm.AlgorithmId,
+				Remark:      item.SysAnalysisTaskCameraAlgorithm.Remark,
+				Camera:      cameraInfo,
+				Algorithm:   algorithmInfo,
+			})
+		}
 	})
 	return
 }

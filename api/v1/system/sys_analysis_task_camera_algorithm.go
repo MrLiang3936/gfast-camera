@@ -29,6 +29,16 @@ type AnalysisTaskCameraAlgorithmSearchRes struct {
 	Total  int64         `json:"total"`
 }
 
+type AnalysisTaskCameraAlgorithmInfo struct {
+	Id          uint                 `json:"id"`
+	TaskId      uint                 `json:"taskId"`
+	CameraId    uint                 `json:"cameraId"`
+	AlgorithmId uint                 `json:"algorithmId"`
+	Remark      string               `json:"remark"`
+	Camera      *entity.SysCamera    `json:"camera"`
+	Algorithm   *entity.SysAlgorithm `json:"algorithm"`
+}
+
 type AnalysisTaskCameraAlgorithmAddReq struct {
 	g.Meta      `path:"/analysisTaskCameraAlgorithm/add" tags:"摄像头-算法关联" method:"post" summary:"添加分析任务摄像头算法关联"`
 	TaskId      uint   `p:"taskId" v:"required#任务ID不能为空"` // 任务ID
