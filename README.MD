@@ -33,11 +33,32 @@
 ## RK3576编译
 * $env:CGO_ENABLED=0
 * $env:GOOS="linux"
-* $env:GOARCH="amd64"
+* $env:GOARCH="arm64"
 ## Windows编译
 * $env:CGO_ENABLED=0
 * $env:GOOS="windows"
 * $env:GOARCH="amd64"
+
+## 构建镜像
+1.  构建可执行文件
+* go build -o gfast main.go
+2. 构建镜像
+* cd /userdata/code/gfast-camera
+* sudo docker build -t gfast .
+* 实时日志和后台运行
+* sudo docker run --rm -p 8808:8808 --name gfast -v /userdata/code/gfast-camera/log:/app/resource/log gfast
+* sudo docker run -d --rm -p 8808:8808 --name gfast -v /userdata/code/gfast-camera/log:/app/resource/log gfast
+
+### 为了连接docker里的redis
+### 创建名为gfast-network的自定义网络（名称可自定义）
+* sudo docker network create gfast-network
+### 若Redis容器未运行，先启动：sudo docker start redis
+* sudo docker network connect gfast-network 你的Redis容器名
+* sudo docker run -d --rm -p 8808:8808 --name gfast --network gfast-network -v /userdata/code/gfast-camera/log:/app/resource/log gfast
+### 进入docker项目内部
+* sudo docker exec -it gfast /bin/sh
+### 外部直接看日志
+* docker logs -f gfast
 
 ![star](https://gitcode.com/kocie/gfast/star/badge.svg)
 
