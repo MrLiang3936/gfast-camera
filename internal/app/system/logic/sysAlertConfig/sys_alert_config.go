@@ -126,3 +126,11 @@ func (s sSysAlertConfig) Get(ctx context.Context, id int) (res *entity.SysAlertC
 	})
 	return
 }
+
+func (s sSysAlertConfig) GetDefault(ctx context.Context) (res *entity.SysAlertConfig, err error) {
+	err = g.Try(ctx, func(ctx context.Context) {
+		err = dao.SysAlertConfig.Ctx(ctx).Where(dao.SysAlertConfig.Columns().IsDefault, 1).Limit(1).Scan(&res)
+		liberr.ErrIsNil(ctx, err, "获取告警配置失败")
+	})
+	return
+}

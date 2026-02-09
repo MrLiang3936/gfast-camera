@@ -18,6 +18,7 @@ type ISysAlertConfig interface {
 	Edit(ctx context.Context, req *system.AlertConfigEditReq) (err error)
 	Delete(ctx context.Context, ids []int) (err error)
 	Get(ctx context.Context, id int) (res *entity.SysAlertConfig, err error)
+	GetDefault(ctx context.Context) (res *entity.SysAlertConfig, err error)
 }
 
 var localSysAlertConfig ISysAlertConfig
