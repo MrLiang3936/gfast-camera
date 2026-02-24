@@ -26,4 +26,5 @@ type SysAlertLog struct {
 	UpdatedBy   any         // 修改人
 	CreateAt    *gtime.Time // 创建时间
 	UpdateAt    *gtime.Time // 更新时间
+	DeleteFlag  any
 }

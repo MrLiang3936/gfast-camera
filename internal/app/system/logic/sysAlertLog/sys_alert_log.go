@@ -57,6 +57,7 @@ func (s *sSysAlertLog) List(ctx context.Context, req *system.AlertLogSearchReq) 
 				m = m.Where(dao.SysAlertLog.Columns().Status, req.Status)
 			}
 		}
+		m = m.Where(dao.SysAlertLog.Columns().DeleteFlag, 0)
 		res.Total, err = m.Count()
 		liberr.ErrIsNil(ctx, err, "获取告警日志失败")
 		if req.PageNum == 0 {
@@ -115,7 +116,9 @@ func (s *sSysAlertLog) Edit(ctx context.Context, req *system.AlertLogEditReq) (e
 // Delete 删除告警日志
 func (s *sSysAlertLog) Delete(ctx context.Context, alertIds []int) (err error) {
 	err = g.Try(ctx, func(ctx context.Context) {
-		_, err = dao.SysAlertLog.Ctx(ctx).Where(dao.SysAlertLog.Columns().AlertId+" in(?)", alertIds).Delete()
+		_, err = dao.SysAlertLog.Ctx(ctx).Where(dao.SysAlertLog.Columns().AlertId+" in(?)", alertIds).Update(do.SysAlertLog{
+			DeleteFlag: 1,
+		})
 		liberr.ErrIsNil(ctx, err, "删除告警日志失败")
 	})
 	return

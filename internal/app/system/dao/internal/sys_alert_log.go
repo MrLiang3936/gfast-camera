@@ -35,6 +35,7 @@ type SysAlertLogColumns struct {
 	UpdatedBy   string // 修改人
 	CreateAt    string // 创建时间
 	UpdateAt    string // 更新时间
+	DeleteFlag  string
 }
 
 // sysAlertLogColumns holds the columns for the table sys_alert_log.
@@ -53,6 +54,7 @@ var sysAlertLogColumns = SysAlertLogColumns{
 	UpdatedBy:   "updated_by",
 	CreateAt:    "create_at",
 	UpdateAt:    "update_at",
+	DeleteFlag:  "delete_flag",
 }
 
 // NewSysAlertLogDao creates and returns a new DAO object for table data access.
