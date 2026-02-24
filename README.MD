@@ -54,7 +54,11 @@
 * sudo docker network create gfast-network
 ### 若Redis容器未运行，先启动：sudo docker start redis
 * sudo docker network connect gfast-network 你的Redis容器名
-* sudo docker run -d --rm -p 8808:8808 --name gfast --network gfast-network -v /userdata/code/gfast-camera/log:/app/resource/log gfast
+* 停止删除
+* sudo docker run -d --rm -p 8808:8808 --name gfast --network gfast-network -v /userdata/code/gfast-camera/log:/app/resource/log gfast 
+* 开启重启
+* sudo docker run -d --rm --restart always -p 8808:8808 --name gfast --network gfast-network -v /userdata/code/gfast-camera/log:/app/resource/log gfast
+
 ### 进入docker项目内部
 * sudo docker exec -it gfast /bin/sh
 ### 外部直接看日志
