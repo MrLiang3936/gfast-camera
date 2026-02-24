@@ -92,21 +92,21 @@ gfcli:
 
 # ZLMediaKit 配置
 zlmediaKit:
-  host: "192.168.2.125"  # ZLMediaKit 服务主机地址
+  host: "192.168.2.84"  # ZLMediaKit 服务主机地址
   port: 8080             # ZLMediaKit 服务端口
   vhost: "__defaultVhost__"
   secret: "qBiDssKtJIk5ngc0M6sa8ZvsCwQAiWcH"
   proxyApp: "proxy"     # 代理非推理的视频  预览用
   rknnApp: "rknn"       # 代理推理的视频    展示推理用
-  apiBase: "http://192.168.2.125/index/api"
+  apiBase: "http://192.168.2.84/index/api"
 
 rknn:
-  host: "192.168.2.125"  # ZLMediaKit 服务主机地址
+  host: "192.168.2.84"  # ZLMediaKit 服务主机地址
   port: 8081             # ZLMediaKit 服务端口
-  start: "http://192.168.2.125:8081/api/v1/rknn/start"          #启动推理
-  stop: "http://192.168.2.125:8081/api/v1/rknn/stop"            #停止推理
-  install: "http://192.168.2.125:8081/api/v1/rknn/install"      #安装模型
-  uninstall: "http://192.168.2.125:8081/api/v1/rknn/uninstall"  #卸载模型
+  start: "http://192.168.2.84:8081/api/v1/rknn/start"          #启动推理
+  stop: "http://192.168.2.84:8081/api/v1/rknn/stop"            #停止推理
+  install: "http://192.168.2.84:8081/api/v1/rknn/install"      #安装模型
+  uninstall: "http://192.168.2.84:8081/api/v1/rknn/uninstall"  #卸载模型
 
 # 上传
 upload:
