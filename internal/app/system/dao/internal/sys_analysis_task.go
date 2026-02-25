@@ -32,6 +32,8 @@ type SysAnalysisTaskColumns struct {
 	UpdateBy     string // 更新者
 	CreatedTime  string // 任务创建时间
 	UpdatedTime  string // 任务更新时间
+	AlertFreq    string // 报警频率 秒 (多少秒报警一次)
+	AlertKeep    string // 报警持续 秒 (出现多少秒就算)
 }
 
 // sysAnalysisTaskColumns holds the columns for the table sys_analysis_task.
@@ -47,6 +49,8 @@ var sysAnalysisTaskColumns = SysAnalysisTaskColumns{
 	UpdateBy:     "update_by",
 	CreatedTime:  "created_time",
 	UpdatedTime:  "updated_time",
+	AlertFreq:    "alert_freq",
+	AlertKeep:    "alert_keep",
 }
 
 // NewSysAnalysisTaskDao creates and returns a new DAO object for table data access.

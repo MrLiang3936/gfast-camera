@@ -75,6 +75,8 @@ type AnalysisTaskEditReq struct {
 	WorkTime     string `p:"workTime"`
 	Type         string `p:"type" v:"required#任务类型不能为空"`
 	Remark       string `p:"remark"`
+	AlertFreq    uint   `p:"alertFreq" v:"min:0#不得小于0" dc:"报警频率 秒 (多少秒报警一次)"`
+	AlertKeep    uint   `p:"alertKeep" v:"min:0#不得小于0" dc:"报警持续 秒 (出现多少秒就算)"`
 }
 
 type AnalysisTaskEditRes struct {

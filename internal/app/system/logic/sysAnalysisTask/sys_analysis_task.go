@@ -111,6 +111,8 @@ func (s *sSysAnalysisTask) Edit(ctx context.Context, req *system.AnalysisTaskEdi
 			Type:         req.Type,
 			Remark:       req.Remark,
 			UpdateBy:     service.Context().GetUserId(ctx),
+			AlertFreq:    req.AlertFreq,
+			AlertKeep:    req.AlertKeep,
 		})
 		liberr.ErrIsNil(ctx, err, "修改分析任务失败")
 	})

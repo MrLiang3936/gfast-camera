@@ -21,4 +21,6 @@ type SysAnalysisTask struct {
 	UpdateBy     uint        `json:"updateBy"     orm:"update_by"      description:"更新者"`
 	CreatedTime  *gtime.Time `json:"createdTime"  orm:"created_time"   description:"任务创建时间"`
 	UpdatedTime  *gtime.Time `json:"updatedTime"  orm:"updated_time"   description:"任务更新时间"`
+	AlertFreq    uint        `json:"alertFreq"    orm:"alert_freq"     description:"报警频率 秒 (多少秒报警一次)"`
+	AlertKeep    uint        `json:"alertKeep"    orm:"alert_keep"     description:"报警持续 秒 (出现多少秒就算)"`
 }

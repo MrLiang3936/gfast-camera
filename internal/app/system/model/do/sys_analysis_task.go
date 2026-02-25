@@ -23,4 +23,6 @@ type SysAnalysisTask struct {
 	UpdateBy     any         // 更新者
 	CreatedTime  *gtime.Time // 任务创建时间
 	UpdatedTime  *gtime.Time // 任务更新时间
+	AlertFreq    any         // 报警频率 秒 (多少秒报警一次)
+	AlertKeep    any         // 报警持续 秒 (出现多少秒就算)
 }

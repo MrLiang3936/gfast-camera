@@ -62,7 +62,7 @@ type AlertLogGetRes struct {
 
 // AlertLogEditReq 告警日志修改请求
 type AlertLogEditReq struct {
-	g.Meta  `path:"/alertLog/edit" tags:"告警日志管理" method:"put" summary:"修改告警日志"`
+	g.Meta  `path:"/alertLog/edit" tags:"告警日志管理" method:"put" summary:"修改告警日志（无用）"`
 	AlertId int `p:"alertId" v:"required|min:1#告警日志ID不能为空|告警日志ID必须大于0"` // 告警日志主键ID
 	*AlertLogBaseReq
 }
@@ -73,7 +73,7 @@ type AlertLogEditRes struct {
 
 // AlertLogDeleteReq 告警日志删除请求
 type AlertLogDeleteReq struct {
-	g.Meta   `path:"/alertLog/delete" tags:"告警日志管理" method:"delete" summary:"删除告警日志"`
+	g.Meta   `path:"/alertLog/delete" tags:"告警日志管理" method:"delete" summary:"批量删除告警日志"`
 	AlertIds []int `p:"alertIds" v:"required#请选择需要删除的告警日志"` // 告警日志ID数组
 }
 
