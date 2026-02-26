@@ -3,6 +3,7 @@ package system
 import (
 	"github.com/gogf/gf/v2/frame/g"
 	commonApi "github.com/tiger1103/gfast/v3/api/v1/common"
+	"github.com/tiger1103/gfast/v3/internal/app/system/model"
 	"github.com/tiger1103/gfast/v3/internal/app/system/model/entity"
 )
 
@@ -12,6 +13,7 @@ type AlertLogSearchReq struct {
 	TaskId            *int   `p:"taskId"`      // 任务ID
 	CameraId          *int   `p:"cameraId"`    // 摄像头ID
 	AlgorithmId       *int   `p:"algorithmId"` // 算法ID
+	CnName            string `p:"cnName"`      // 识别类型
 	EnName            string `p:"enName"`      // 报警类别
 	Degree            *int   `p:"degree"`      // 报警级别
 	Status            *int   `p:"status"`      // 归档状态
@@ -21,8 +23,8 @@ type AlertLogSearchReq struct {
 // AlertLogSearchRes 告警日志列表查询响应
 type AlertLogSearchRes struct {
 	g.Meta            `mime:"application/json"`
-	List              []*entity.SysAlertLog `json:"list"` // 告警日志列表数据
-	commonApi.ListRes                       // 分页结果
+	List              []*model.SysAlertLog `json:"list"` // 告警日志列表数据
+	commonApi.ListRes                      // 分页结果
 }
 
 // AlertLogBaseReq 告警日志添加/编辑的基础参数

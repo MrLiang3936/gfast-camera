@@ -37,6 +37,13 @@ func (s *sSysAlertLog) List(ctx context.Context, req *system.AlertLogSearchReq) 
 	res = new(system.AlertLogSearchRes)
 	err = g.Try(ctx, func(ctx context.Context) {
 		m := dao.SysAlertLog.Ctx(ctx)
+		m = m.LeftJoin(
+			dao.SysAnalysisTask.Table(), fmt.Sprintf("%s.task_id = %s.id", dao.SysAlertLog.Table(), dao.SysAnalysisTask.Table()))
+		m = m.LeftJoin(
+			dao.SysAlgorithm.Table(), fmt.Sprintf("%s.en_name = %s.en_name", dao.SysAlertLog.Table(), dao.SysAlgorithm.Table()))
+		m = m.LeftJoin(
+			dao.SysCamera.Table(), fmt.Sprintf("%s.camera_id = %s.camera_id", dao.SysAlertLog.Table(), dao.SysCamera.Table()))
+
 		if req != nil {
 			if req.TaskId != nil {
 				m = m.Where(dao.SysAlertLog.Columns().TaskId, req.TaskId)
@@ -46,6 +53,9 @@ func (s *sSysAlertLog) List(ctx context.Context, req *system.AlertLogSearchReq) 
 			}
 			if req.AlgorithmId != nil {
 				m = m.Where(dao.SysAlertLog.Columns().AlgorithmId, req.AlgorithmId)
+			}
+			if req.CnName != "" {
+				m = m.Where(dao.SysAlgorithm.Columns().CnName+" like ?", "%"+req.CnName+"%")
 			}
 			if req.EnName != "" {
 				m = m.Where(dao.SysAlertLog.Columns().EnName+" like ?", "%"+req.EnName+"%")
@@ -67,7 +77,17 @@ func (s *sSysAlertLog) List(ctx context.Context, req *system.AlertLogSearchReq) 
 			req.PageSize = consts.PageSize
 		}
 		res.CurrentPage = req.PageNum
-		err = m.Page(req.PageNum, req.PageSize).Order("create_at desc").Scan(&res.List)
+		err = m.
+			Fields(fmt.Sprintf("%s.*,%s.alert_id as id, %s.name as task_name, %s.cn_name, %s.camera_name",
+				dao.SysAlertLog.Table(),
+				dao.SysAlertLog.Table(),
+				dao.SysAnalysisTask.Table(),
+				dao.SysAlgorithm.Table(),
+				dao.SysCamera.Table())).
+			Page(req.PageNum, req.PageSize).
+			Order(fmt.Sprintf("%s.create_at desc", dao.SysAlertLog.Table())).
+			Scan(&res.List)
+
 		liberr.ErrIsNil(ctx, err, "获取告警日志失败")
 	})
 	return
