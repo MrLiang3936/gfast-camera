@@ -125,16 +125,10 @@ func (s *sSysAlgorithm) Edit(ctx context.Context, req *system.AlgorithmEditReq) 
 
 func (s *sSysAlgorithm) EditBatch(ctx context.Context, req *system.AlgorithmEditPatchReq) (err error) {
 	err = g.Try(ctx, func(ctx context.Context) {
-		// 先查询需要更新的算法记录，以便获取模型文件信息
+		// 先查询需要更新的算法记录及运行状态，以便获取模型文件信息
 		var algorithms []*entity.SysAlgorithm
 		err = dao.SysAlgorithm.Ctx(ctx).Where(dao.SysAlgorithm.Columns().Id+" in(?)", req.Ids).Scan(&algorithms)
 		liberr.ErrIsNil(ctx, err, "查询算法数据失败")
-
-		_, err = dao.SysAlgorithm.Ctx(ctx).Where(dao.SysAlgorithm.Columns().Id+" in(?)", req.Ids).Update(do.SysAlgorithm{
-			State:    req.State,
-			UpdateBy: service.Context().GetUserId(ctx),
-		})
-		liberr.ErrIsNil(ctx, err, "批量修改算法失败")
 
 		// 如果状态变为启用且有模型文件，则调用rknn.install接口
 		if req.State == "Installed" {
@@ -158,6 +152,12 @@ func (s *sSysAlgorithm) EditBatch(ctx context.Context, req *system.AlgorithmEdit
 				}
 			}
 		}
+
+		_, err = dao.SysAlgorithm.Ctx(ctx).Where(dao.SysAlgorithm.Columns().Id+" in(?)", req.Ids).Update(do.SysAlgorithm{
+			State:    req.State,
+			UpdateBy: service.Context().GetUserId(ctx),
+		})
+		liberr.ErrIsNil(ctx, err, "批量修改算法失败")
 	})
 	return
 }
