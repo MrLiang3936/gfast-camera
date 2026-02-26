@@ -38,7 +38,7 @@ func (c *algorithmController) Edit(ctx context.Context, req *system.AlgorithmEdi
 	return
 }
 
-// Edit 批量修改
+// EditBatch 批量修改
 func (c *algorithmController) EditBatch(ctx context.Context, req *system.AlgorithmEditPatchReq) (res *system.AlgorithmEditPatchRes, err error) {
 	err = service.SysAlgorithm().EditBatch(ctx, req)
 	return

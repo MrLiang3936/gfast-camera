@@ -75,6 +75,8 @@ type AnalysisTaskEditReq struct {
 	WorkTime     string `p:"workTime"`
 	Type         string `p:"type" v:"required#任务类型不能为空"`
 	Remark       string `p:"remark"`
+	AlertFreq    uint   `p:"alertFreq" v:"min:0#不得小于0" dc:"报警频率 秒 (多少秒报警一次)"`
+	AlertKeep    uint   `p:"alertKeep" v:"min:0#不得小于0" dc:"报警持续 秒 (出现多少秒就算)"`
 }
 
 type AnalysisTaskEditRes struct {
@@ -99,9 +101,9 @@ type AnalysisTaskGetRes struct {
 }
 
 type AnalysisTaskUpdateStateReq struct {
-	g.Meta `path:"/analysisTask/enable" tags:"分析任务管理" method:"get" summary:"启用分析任务"`
+	g.Meta `path:"/analysisTask/enable" tags:"分析任务管理" method:"put" summary:"启用/停止 分析任务"`
 	Id     int    `p:"id" v:"required|min:1#id必须"`
-	State  string `json:"state" v:"required|in:run,stop#state必须且只能是run或stop" dc:"任务运行状态(run/stop)等"`
+	State  string `p:"state" v:"required|in:run,stop#state必须且只能是run或stop" dc:"任务运行状态(run/stop)等"`
 }
 
 type AnalysisTaskUpdateStateRes struct {

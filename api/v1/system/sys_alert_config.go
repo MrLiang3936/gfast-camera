@@ -24,6 +24,11 @@ type AlertConfigSearchRes struct {
 	List []*entity.SysAlertConfig `json:"list"`
 }
 
+type AlertConfigGetReq struct {
+	g.Meta `path:"/alertConfig/get" tags:"告警配置管理" method:"get" summary:"告警配置列表"`
+	Id     int `p:"id" v:"required#ID必须"`
+}
+
 type AlertConfigAddReq struct {
 	g.Meta    `path:"/alertConfig/add" tags:"告警配置管理" method:"post" summary:"添加告警配置"`
 	VoiceName string `p:"voiceName" v:"required#语音文件名不能为空"`

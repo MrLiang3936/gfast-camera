@@ -37,6 +37,7 @@ type AnalysisTaskCameraAlgorithmInfo struct {
 	Remark      string               `json:"remark"`
 	Camera      *entity.SysCamera    `json:"camera"`
 	Algorithm   *entity.SysAlgorithm `json:"algorithm"`
+	WsFmp4Url   string               `json:"wsFmp4Url"`
 }
 
 type AnalysisTaskCameraAlgorithmAddReq struct {

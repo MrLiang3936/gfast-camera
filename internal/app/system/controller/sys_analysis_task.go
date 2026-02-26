@@ -38,6 +38,7 @@ func (c *analysisTaskController) ListByAlgorithm(ctx context.Context, req *syste
 
 // Add 添加分析任务
 func (c *analysisTaskController) Add(ctx context.Context, req *system.AnalysisTaskAddReq) (res *system.AnalysisTaskAddRes, err error) {
+	req.State = "stop"
 	err = service.SysAnalysisTask().Add(ctx, req)
 	return
 }

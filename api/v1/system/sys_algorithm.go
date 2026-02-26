@@ -35,6 +35,7 @@ type AlgorithmBaseReq struct {
 	CoverImageUrl    string `p:"coverImageUrl"`                             // 算法封面图URL
 	State            string `p:"state" v:"required#算法部署状态不能为空"`             // 算法部署状态
 	Remark           string `p:"remark"`                                    // 备注
+	Labels           string `p:"labels"`                                    // 加密生成的模型训练标签
 	ModelFile        string `p:"modelFile"`                                 // 加密生成的模型路径
 	Secret           string `p:"secret"`
 }

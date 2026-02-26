@@ -40,7 +40,12 @@ func (c *alertConfigController) Edit(ctx context.Context, req *system.AlertConfi
 }
 
 // Get 查询报警配置
-func (c *alertConfigController) Get(ctx context.Context, id int) (res *entity.SysAlertConfig, err error) {
-	res, err = service.SysAlertConfig().Get(ctx, id)
+func (c *alertConfigController) Get(ctx context.Context, req *system.AlertConfigGetReq) (res *entity.SysAlertConfig, err error) {
+	res, err = service.SysAlertConfig().Get(ctx, req.Id)
 	return
 }
+
+//func (c *alertConfigController) GetDefault(ctx context.Context,) (res *entity.SysAlertConfig, err error) {
+//	res, err = service.SysAlertConfig().GetDefault(ctx)
+//	return
+//}

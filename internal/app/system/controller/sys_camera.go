@@ -9,6 +9,7 @@ package controller
 
 import (
 	"context"
+	"strings"
 
 	"github.com/tiger1103/gfast/v3/api/v1/system"
 	"github.com/tiger1103/gfast/v3/internal/app/system/model"
@@ -29,12 +30,17 @@ func (c *cameraController) List(ctx context.Context, req *system.CameraSearchReq
 
 // Add 添加摄像头
 func (c *cameraController) Add(ctx context.Context, req *system.CameraAddReq) (res *system.CameraAddRes, err error) {
+	req.PreviewImg = "/camera/" + req.PreviewImg
 	err = service.SysCamera().Add(ctx, req)
 	return
 }
 
 // Edit 修改摄像头
 func (c *cameraController) Edit(ctx context.Context, req *system.CameraEditReq) (res *system.CameraEditRes, err error) {
+	// 判断PreviewImg是否以"/camera/"开头，不是就加上
+	if req.PreviewImg != "" && !strings.HasPrefix(req.PreviewImg, "/camera/") {
+		req.PreviewImg = "/camera/" + req.PreviewImg
+	}
 	err = service.SysCamera().Edit(ctx, req)
 	return
 }
