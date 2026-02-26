@@ -112,7 +112,7 @@ rknn:
 upload:
   # url: /tmp/
   windowsUrl: E:\tmp\
-  linuxUrl: E:\tmp\
+  linuxUrl: /userdata/images/camera
 
 model:
   urlPre: "/userdata/blueberry/code/go-rknnlite/example/yolov11smoking/"

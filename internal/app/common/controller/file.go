@@ -29,7 +29,7 @@ func (a *fileController) Get(ctx context.Context, req *common.FileUploadReq) (re
 	}
 
 	upUrl := getUploadUrl(ctx)
-	names, err := req.File.Save(upUrl)
+	names, err := req.File.Save(upUrl, true)
 
 	if err != nil {
 		return nil, err
@@ -37,7 +37,7 @@ func (a *fileController) Get(ctx context.Context, req *common.FileUploadReq) (re
 
 	res = &common.FileUploadRes{
 		Name: names,
-		Url:  upUrl,
+		Url:  "/camera/",
 	}
 	return
 }
