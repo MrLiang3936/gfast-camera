@@ -141,7 +141,12 @@ func (s *sSysAnalysisTask) Get(ctx context.Context, id int) (res *system.Analysi
 	return
 }
 
-func (s *sSysAnalysisTask) UpdateState(ctx context.Context, id int, state string) (res *system.AnalysisTaskUpdateStateRes, err error) {
+func (s *sSysAnalysisTask) UpdateState(ctx context.Context, taskId int, state string) (res *system.AnalysisTaskUpdateStateRes, err error) {
+	// 先调用启动/停止
+	//err = s.callRknnStart(ctx, strconv.Itoa(taskId), state)
+	//if err != nil {
+	//	return
+	//}
 	err = g.Try(ctx, func(ctx context.Context) {
 		res = new(system.AnalysisTaskUpdateStateRes)
 
@@ -153,7 +158,7 @@ func (s *sSysAnalysisTask) UpdateState(ctx context.Context, id int, state string
 
 		// 更新数据库中的任务状态
 		result, err := dao.SysAnalysisTask.Ctx(ctx).
-			Where(dao.SysAnalysisTask.Columns().Id, id).
+			Where(dao.SysAnalysisTask.Columns().Id, taskId).
 			Update(do.SysAnalysisTask{
 				State:    state,
 				UpdateBy: service.Context().GetUserId(ctx),
@@ -173,38 +178,43 @@ func (s *sSysAnalysisTask) UpdateState(ctx context.Context, id int, state string
 	return
 }
 
-func (s *sSysAnalysisTask) callRknnStart(ctx context.Context, modelFile string, installFlag bool) error {
+func (s *sSysAnalysisTask) callRknnStart(ctx context.Context, taskId, state string) error {
 	// 获取配置中的rknn安装地址
 	var rknnStartUrl string
-	if installFlag {
+	if state == "run" {
 		rknnStartUrl = g.Cfg().MustGet(ctx, "rknn.start").String()
 	} else {
 		rknnStartUrl = g.Cfg().MustGet(ctx, "rknn.stop").String()
 	}
 	if rknnStartUrl == "" {
-		return fmt.Errorf("rknn install url is not configured")
+		return fmt.Errorf("rknn start or stop url is not configured")
 	}
 
 	// 发送POST请求到rknn.install接口
-	response, err := g.Client().Post(context.Background(), rknnStartUrl,
-		g.Map{
-			//"data": [],
-		})
+	requestBody := g.Map{
+		"data": []g.Map{
+			{
+				"taskId": taskId,
+			},
+		},
+	}
+	response, err := g.Client().Post(context.Background(), rknnStartUrl, requestBody)
+
 	if err != nil {
-		g.Log().Errorf(context.Background(), "Failed to call rknn install API: %v", err)
+		g.Log().Errorf(context.Background(), "Failed to call rknn %s API: %v", state, err)
 		return err
 	}
 	defer response.Close()
 
 	if response.StatusCode != 200 {
-		errMsg := fmt.Sprintf("rknn install API returned status code: %d", response.StatusCode)
+		errMsg := fmt.Sprintf("rknn %s API returned status code: %d", state, response.StatusCode)
 		g.Log().Errorf(context.Background(), errMsg)
 		return fmt.Errorf(errMsg)
 	}
 
 	respStr := response.ReadAllString()
 	if err != nil {
-		errMsg := fmt.Sprintf("failed to read rknn install API response body: %v", err)
+		errMsg := fmt.Sprintf("failed to read rknn %s API response body: %v", state, err)
 		g.Log().Errorf(ctx, errMsg)
 		return fmt.Errorf(errMsg)
 	}
@@ -228,13 +238,13 @@ func (s *sSysAnalysisTask) callRknnStart(ctx context.Context, modelFile string, 
 
 	if isSuccess || isRepeat {
 		if isRepeat {
-			g.Log().Infof(context.Background(), "Rknn install repeat for model: %s, message: %s", modelFile, data["message"])
+			g.Log().Infof(context.Background(), "Rknn %s repeat, message: %s", state, data["message"])
 		} else {
-			g.Log().Infof(context.Background(), "Rknn install success for model: %s", modelFile)
+			g.Log().Infof(context.Background(), "Rknn %s success", state)
 		}
 	} else {
-		g.Log().Errorf(context.Background(), "Rknn install failed for model: %s, response: %+v", modelFile, result)
-		return fmt.Errorf("rknn install failed for model: %s, response: %+v", modelFile, result)
+		g.Log().Errorf(context.Background(), "Rknn %s failed, response: %+v", state, result)
+		return fmt.Errorf("rknn %s failed, response: %+v", state, result)
 	}
 
 	return nil
