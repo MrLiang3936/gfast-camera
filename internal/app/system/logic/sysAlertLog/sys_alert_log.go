@@ -66,6 +66,9 @@ func (s *sSysAlertLog) List(ctx context.Context, req *system.AlertLogSearchReq) 
 			if req.Status != nil {
 				m = m.Where(dao.SysAlertLog.Columns().Status, req.Status)
 			}
+			if len(req.DateRange) != 0 {
+				m = m.Where(fmt.Sprintf("%s.create_at >=? AND %s.create_at <=?", dao.SysAlertLog.Table(), dao.SysAlertLog.Table()), req.DateRange[0], req.DateRange[1])
+			}
 		}
 		m = m.Where(dao.SysAlertLog.Columns().DeleteFlag, 0)
 		res.Total, err = m.Count()
