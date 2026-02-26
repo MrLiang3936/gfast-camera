@@ -172,6 +172,20 @@ func (s *sSysAnalysisTaskCameraAlgorithm) List(ctx context.Context, req *system.
 			Scan(&list)
 		liberr.ErrIsNil(ctx, err, "获取分析任务摄像头算法关联失败")
 
+		// 从配置文件获取 ZLMediaKit 服务地址
+		config := g.Cfg()
+		zlHost := config.MustGet(ctx, "zlmediaKit.host").String()
+		zlPort := config.MustGet(ctx, "zlmediaKit.port").Int()
+		zlRknnApp := config.MustGet(ctx, "zlmediaKit.rknnApp").String()
+
+		// 如果配置不存在，使用默认值
+		if zlHost == "" {
+			zlHost = "127.0.0.1"
+		}
+		if zlPort == 0 {
+			zlPort = 8080
+		}
+
 		// 将结果转换为返回格式
 		for _, item := range list {
 			var cameraInfo *entity.SysCamera
@@ -206,6 +220,8 @@ func (s *sSysAnalysisTaskCameraAlgorithm) List(ctx context.Context, req *system.
 				Remark:      item.SysAnalysisTaskCameraAlgorithm.Remark,
 				Camera:      cameraInfo,
 				Algorithm:   algorithmInfo,
+				WsFmp4Url: fmt.Sprintf("ws://%s:%d/%s/%d_%d.live.mp4",
+					zlHost, zlPort, zlRknnApp, item.SysAnalysisTaskCameraAlgorithm.CameraId, item.SysAnalysisTaskCameraAlgorithm.TaskId),
 			})
 		}
 	})
